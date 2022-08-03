@@ -1,0 +1,196 @@
+/*
+
+                d8                           
+        d88~\ _d88__ Y88b  / 888-~88e  888-~\
+       C888    888    Y888/  888  888b 888   
+        Y88b   888     Y8/   888  8888 888   
+         888D  888      Y    888  888P 888   
+       \_88P   "88_/   /     888-_88"  888   
+                     _/      888             
+
+                    Copyright 2022 stypr.com
+
+*/
+
+@font-face {
+    font-family: 'Oxygen Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(//fonts.gstatic.com/s/oxygenmono/v13/h0GsssGg9FxgDgCjLeAd7hjYx-4.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'SUIT Variable';
+    font-weight: 100 900;
+    src: url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.woff2') format('woff2-variations');
+    font-display: swap;
+}
+
+* {
+    font-family: 'SUIT Variable', 'Ubuntu', sans-serif;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    height: 100%;
+    /* Prevent scroll on narrow devices */
+}
+
+@media (max-width: 991.98px) {
+    .offcanvas-collapse {
+        position: fixed;
+        top: 56px;
+        /* Height of navbar */
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: auto;
+        visibility: hidden;
+        background-color: #343a40;
+        transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+    }
+
+    .offcanvas-collapse.open {
+        visibility: visible;
+        transform: translateX(-100%);
+    }
+}
+
+.nav-scroller .nav {
+    color: rgba(255, 255, 255, .75);
+}
+
+.nav-scroller .nav-link {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: .875rem;
+    color: #6c757d;
+}
+
+.nav-scroller .nav-link:hover {
+    color: #3b9a3b;
+}
+
+.nav-scroller .active {
+    font-weight: 500;
+    color: #fff;
+    background: #020;
+    /* #346039 */
+}
+
+.nav-scroller .active:hover {
+    color: #fff;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+.text-bg-dark {
+    background-color: #020 !important;
+}
+
+.logo-black {
+    color: #fff;
+    background: #6c757d;
+    border-radius: 4px;
+    padding: 3px 15px 3px 10px;
+    border: 2px solid #6c757d;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -2px;
+    font-family: 'SUIT Variable';
+}
+
+.logo {
+    border-radius: 4px;
+    border: 2px solid #fff;
+    padding: 3px 15px 3px 10px;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -2px;
+    font-family: 'SUIT Variable';
+}
+
+.table-dark {
+    --bs-table-color: #fff;
+    --bs-table-bg: #113519;
+    --bs-table-border-color: #373b33;
+    --bs-table-striped-bg: #2c3430;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #373e3b;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #323539;
+    --bs-table-hover-color: #fff;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color)
+}
+
+.text-monospace {
+    font-size: 8pt;
+    font-family: 'Oxygen Mono', monospace;
+}
+
+.no-round {
+    border-radius: 0 !important;
+}
