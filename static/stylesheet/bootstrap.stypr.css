@@ -194,3 +194,14 @@ body {
 .no-round {
     border-radius: 0 !important;
 }
+
+.header-link-group .nav-link {
+    color: #fff;
+}
+.header-link-group .nav-link:hover{
+    color: #cfc;
+}
+
+.header-link-group .nav-link.active {
+    color: #888;
+}
