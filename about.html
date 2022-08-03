@@ -12,7 +12,7 @@
     <meta name="twitter:title" content="AS400671">
     <meta property="og:title" content="AS400671">
     <meta property="og:description" content="stypr network &middot; network.stypr.com">
-    <title>AS400671 (AS-STYPR)</title>
+    <title>About AS400671 (AS-STYPR)</title>
     <link rel="shortcut icon" href="https://stypr.com/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://stypr.com/favicon.ico">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/flag-icon-css@4.1.6/css/flag-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
@@ -77,7 +77,7 @@
 
                     <ul class="header-link-group nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                         <li>
-                            <a href="/" class="nav-link active" id="header-link-dashboard">
+                            <a href="/" class="nav-link" id="header-link-dashboard">
                                 <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                     <use xlink:href="#speedometer2" />
                                 </svg>
@@ -104,7 +104,7 @@
                         </li>
                         -->
                         <li>
-                            <a href="/about.html" class="nav-link" id="header-link-about">
+                            <a href="/about.html" class="nav-link active" id="header-link-about">
                                 <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                     <use xlink:href="#about" />
                                 </svg>
@@ -115,144 +115,74 @@
                 </div>
             </div>
         </div>
-        <div class="nav-scroller bg-body shadow-sm">
-            <div class="container">
-                <nav class="nav" aria-label="Secondary navigation">
-                    <a class="nav-link" aria-current="page" href="#infrastructure">
-                        Infrastructures
-                        <span class="badge text-bg-success align-text-bottom" id="counter-pop-alive">..</span>
-                        <span class="badge text-bg-danger  align-text-bottom" id="counter-pop-dead">..</span>
-                    </a>
-                    <a class="nav-link" href="#prefixes"> Prefixes <span class="badge text-bg-secondary rounded-pill align-text-bottom" id="counter-prefixes">..</span>
-                    </a>
-                    <a class="nav-link" href="#exchanges"> Exchanges <span class="badge text-bg-secondary rounded-pill align-text-bottom" id="counter-exchanges">..</span>
-                    </a>
-                    <a class="nav-link" href="#connectivity"> Connectivity <span class="badge text-bg-secondary rounded-pill align-text-bottom" id="counter-connectivity">..</span>
-                    </a>
-                </nav>
-            </div>
-        </div>
     </header>
     <main class="flex-shrink-0 pb-5 pt-4">
         <div class="container">
 
-            <div class="d-none align-items-center p-5 my-5" id="loading-screen">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="spinner-grow" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <br>
-                        <small>Fetching new information from PoPs.. Please wait!</small>
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-none d-flex align-items-center p-3 my-3 text-white bg-danger shadow-sm">
-                <div class="lh-1">
-                    <h1 class="h6 mb-0 text-white lh-1">
-                        <b>IPv6 is not available!</b>
-                    </h1><br>
-                    <small>AS400671 only provides access for IPv6 addresses. You may not be able to access some of services we provide.</small>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-infrastrcuture">
+            <div class="" id="page-about">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div class="mb-10">
-                        <h1 class="h2">Infrastructures</h1>
-                        <h6>Overview of network infrastructures</h6>
+                        <h1 class="h2">About AS400671</h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                         <div class="my-3 p-3 bg-body shadow-sm">
-                            <h4>Network Traffic</h4>
-                            <canvas class="p-0 my-3 w-100" id="myChart" width="900" height="380"></canvas>
+                            <h4>Description</h4>
+                            <br>
+                            <h6>
+                                AS400671 (AS-STYPR) is a multi-purpose ISP(Internet Service Provider) network used for providing secure service operations, security researches, and internal network managements.<br><br>
+                                The entire network infrastructures and dashboard system are operated, maintained and managed by <a href="https://stypr.com">stypr</a>.
+                            </h6>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="w-100 bg-body shadow-sm my-3 p-3">
-                            <h4>PoPs</h4>
-
-                            <div id="list-pop">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="my-3 p-3 bg-body shadow-sm">
-                            <h4>Route Propagation Graph</h4>
-                            <img src="https://bgp.he.net/graphs/as400671-ipv6.svg" class="p-0 my-3 w-100">
+                            <h4>Peering Policy</h4>
+                            <br>
+                            <h6>
+                                AS400671 (AS-STYPR) provides an <b>open peering policy</b> by default.<br>
+                                You are always welcome to peer over any exchange points we have in common.<br>
+                                For the list of interconnected exchange points, please refer to [Dashboard] &raquo; [Exchanges] for more details.
+                                <br><br>
+
+                                To peer with AS400671, you must meet the following requirements:
+                                <br><br>
+                                <ul>
+                                    <li>AS must be valid and public.</li>
+                                    <li>AS must be announcing its own prefixes only.</li>
+                                    <li>AS must announce at least one or more legitimate prefixes.</li>
+                                    <li>There needs to be at least one or more exchange points we have in common.</li>
+                                </ul>
+
+                                Any peering connections are subject to termination without notice.<br>
+                                Please contact <a href="#">serv<span class="d-none">digial-server</span>er+peering&#64;s<span class="d-none">sty</span>typr.com</a> (<a href="//harold.kim/pubkey.asc">pgp</a>) for any inquiries regarding the peering policy.
+                                <br>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="my-3 p-3 bg-body shadow-sm">
+                            <h4>Sponsors &middot; Friendly</h4>
+                            <br>
+                            <h6>
+                                <ul>
+                                    <li>
+                                        <b>KNOC</b><br>
+                                        Korea Network Operation Center &middot; <a href="https://knoc.cc/">https://knoc.cc/</a>
+                                    </li>
+                                </ul>
+                            </h6>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="d-none" id="page-prefixes">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">Prefixes</h1>
-                        <h6>List of prefixes announced by AS400671</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th>&nbsp;</th>
-                            <th>Prefix</th>
-                            <th>Description</th>
-                            <th>RPKI</th>
-                        </thead>
-                        <tbody id="prefixes-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-exchanges">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">Exchanges</h1>
-                        <h6>List of currently interconnected IXPs</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th>&nbsp;</th>
-                            <th>Exchange Name</th>
-                            <th>IPv4</th>
-                            <th>IPv6</th>
-                            <th>Speed</th>
-                        </thead>
-                        <tbody id="exchanges-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-connectivity">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">Connectivity</h1>
-                        <h6>List of upstreams and peers interconnected with AS400671</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th>&nbsp;</th>
-                            <th>Network Name</th>
-                            <th>Type</th>
-                            <th>Speed</th>
-                        </thead>
-                        <tbody id="connectivity-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        </div>
     </main>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center my-0 py-2 mt-auto bg-white border-top">
@@ -296,7 +226,6 @@
     </footer>
 
     <script src="/static/javascript/init.js"></script>
-    <script src="/static/javascript/dashboard.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>

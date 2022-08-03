@@ -12,6 +12,8 @@
 
 */
 
+/***********/
+
 var dataLoadedComplete = false;
 var myChart = null;
 
@@ -34,13 +36,14 @@ const popInfo = {
     },
 };
 const popInfoKeys = Object.keys(popInfo);
-
 const dataLoaded = {
     'infrastructure': {},
     'prefixes': {},
     'connectivity': {},
     'popDead': [],
 };
+
+/***********/
 
 const isObject = (item) => {
     return (item && typeof item === 'object' && !Array.isArray(item));
