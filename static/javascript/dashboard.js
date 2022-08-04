@@ -241,7 +241,6 @@ const renderExchanges = async () => {
     const exchangesDOM = document.querySelector("#exchanges-body");
     exchangesDOM.innerHTML = "";
     const fetchOutput = dataLoaded.connectivity;
-
     const listExchanges = {};
     for (let exchange of Object.keys(fetchOutput.exchanges)) {
         let exchangeInfo = fetchOutput.exchanges[exchange];
@@ -273,7 +272,7 @@ const renderExchanges = async () => {
                 </td>
                 <td>
                     <span class="flag-icon-${ exchangeInfo.country } flag-icon"></span>
-                    ${ exchangeName }
+                    ${ escapeHTML(exchangeName) }
                 </td>
                 <td>
                     ${ exchangeInfo.ip.v4 ? exchangeInfo.ip.v4 : domCross }
@@ -330,13 +329,13 @@ const renderConnectivity = async () => {
                 <td align=right>
                     <a href="https://bgp.tools/as/${asnName}" class="text-black">
                         <span class="text-monospace">
-                            ${asnName}
+                            ${escapeHTML(asnName)}
                         </span>
                     </a>
                 </td>
                 <td>
                     <span class="flag-icon-${asnInfo.country} flag-icon"></span>
-                    ${ asnInfo.provider ? asnInfo.provider : asnInfo.name }
+                    ${ escapeHTML(asnInfo.provider ? asnInfo.provider : asnInfo.name) }
                 </td>
                 <td>
                     ${ asnInfo.type == "upstreams" ? '<span class="badge text-bg-success">Upstream</span>' : '' }
@@ -394,7 +393,7 @@ const renderPrefixes = async () => {
                 </td>
                 <td>
                     <span class="flag-icon-${(prefixInfo.type == "anycast") ? "un" : prefixInfo.announce_country[0] } flag-icon"></span>
-                    ${prefixName}
+                    ${escapeHTML(prefixName)}
                 </td>
                 <td>stypr LLC Network</td>
                 <td>
@@ -469,9 +468,9 @@ const renderInfrastructure = async (type = "total") => {
                     </span>
                 </div>
                 <div class="p-2">
-                    <b>${popInfo[popInfoKeys[i]].name}</b><br>
+                    <b>${ popInfo[popInfoKeys[i]].name }</b><br>
                     <span class="text-monospace">
-                        ${popInfo[popInfoKeys[i]].version ? popInfo[popInfoKeys[i]].version : "unknown"}
+                        ${ popInfo[popInfoKeys[i]].version ? popInfo[popInfoKeys[i]].version : "unknown" }
                     </span>
                     </div>
             </div>`;

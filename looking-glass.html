@@ -23,10 +23,60 @@
     </noscript>
     <link href="/static/stylesheet/bootstrap.css" rel="stylesheet">
     <link href="/static/stylesheet/bootstrap.stypr.css?2208041520" rel="stylesheet">
+    <style>
+        .search-box{
+            position: relative;
+        }
+
+        .search-box svg {
+            position: absolute;
+            right: 13px;
+            top:15px;
+            color:#ced4da;
+        }
+
+        .search-box .form-control {
+            height: 50px;
+            background-color:#eeeeee69;
+        }
+
+        .search-box .form-control:focus {
+            background-color: #eeffee69;
+            box-shadow: none;
+            border-color: #aaccaa;
+        }
+
+        .search-box .form-control:focus + svg {
+            color: #aaccaa !important;
+        }
+
+        .text-monospace-lg {
+            font-size: 10pt;
+            font-family: "Oxygen Mono", monospace;
+        }
+
+        .text-monospace-defaut {
+            font-family: "Oxygen Mono", monospace;
+        }
+    </style>
 </head>
 
 <body class="bg-light d-flex flex-column h-100">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="traceroute" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h1A1.5 1.5 0 0 1 5 2.5h4.134a1 1 0 1 1 0 1h-2.01c.18.18.34.381.484.605.638.992.892 2.354.892 3.895 0 1.993.257 3.092.713 3.7.356.476.895.721 1.787.784A1.5 1.5 0 0 1 12.5 11h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5H6.866a1 1 0 1 1 0-1h1.711a2.839 2.839 0 0 1-.165-.2C7.743 11.407 7.5 10.007 7.5 8c0-1.46-.246-2.597-.733-3.355-.39-.605-.952-1-1.767-1.112A1.5 1.5 0 0 1 3.5 5h-1A1.5 1.5 0 0 1 1 3.5v-1zM2.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10 10a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+        </symbol>
+
+        <symbol id="protocol" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 0 .5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 2h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 4h10a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 6h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2A.5.5 0 0 1 .5 8h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-13 2a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5Zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+        </symbol>
+
+        <symbol id="route" viewBox="0 0 16 16">
+            <path d="M7 16h2V6h5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.8 2.4A1 1 0 0 0 14 2H9v-.586a1 1 0 0 0-2 0V7H2a1 1 0 0 0-.8.4L.225 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4h5v5z"/>
+        </symbol>
+        <symbol id="ping" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9H1.475ZM.879 8C-2.426 1.68 4.41-2 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.88Z"/>
+        </symbol>
         <symbol id="dead" viewBox="0 0 16 16">
             <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
             <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
@@ -115,13 +165,92 @@
         </div>
     </header>
     <main class="flex-shrink-0 pb-5 pt-4">
-        <div class="align-items-center p-5 my-5" id="loading-screen">
-            <div class="row">
+        <div class="container">
+            <div class="align-items-center my-5" id="search-bar">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-9 col-xl-8">
+                        <div class="card border-0 rounded-0 p-3 shadow-sm" class="search-container">
+                            <div class="search-box">
+                                <input type="text" class="form-control text-monospace-default rounded-0" disabled id="search-item">
+                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                    <use xlink:href="#glass" />
+                                </svg>
+                            </div>
+                                <div class="search-help">
+                                <h6 class="pt-5 pb-0">Available Commands</h6>
+                                <div id="" class="lh-1 pt-0 d-flex align-items-center w-100">
+                                    <div class="p-2">
+                                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                            <use xlink:href="#ping" />
+                                        </svg>
+                                    </div>
+                                    <div class="p-2">
+                                        <span class="text-monospace-lg">ping [ip]</span>
+                                        <br>
+                                        <span style="font-size: 9pt;">
+                                            measures the round-trip time for messages sent from source to destination.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="" class="lh-1 pt-2 d-flex align-items-center w-100">
+                                    <div class="p-2">
+                                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                            <use xlink:href="#traceroute" />
+                                        </svg>
+                                    </div>
+                                    <div class="p-2">
+                                        <span class="text-monospace-lg">traceroute [ip]</span>
+                                        <br>
+                                        <span style="font-size: 9pt;">
+                                            traces and diagnoses the pathway from source to destination.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="" class="lh-1 pt-2 d-flex align-items-center w-100">
+                                    <div class="p-2">
+                                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                            <use xlink:href="#protocol" />
+                                        </svg>
+                                    </div>
+                                    <div class="p-2">
+                                        <span class="text-monospace-lg">bgp proto</span>
+                                        <br>
+                                        <span style="font-size: 9pt;">
+                                            lists status of protocols used by point of presenses.
+                                        </span>
+                                    </div>
+                                </div>
+                                <div id="" class="lh-1 pt-2 d-flex align-items-center w-100">
+                                    <div class="p-2">
+                                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                            <use xlink:href="#route" />
+                                        </svg>
+                                    </div>
+                                    <div class="p-2">
+                                        <span class="text-monospace-lg">bgp route [ip]</span>
+                                        <br>
+                                        <span style="font-size: 9pt;">
+                                            shows routing information on a given ip address.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="d-none align-items-center p-5 my-5" id="loading-screen">
+            <div class="row">
                 <div class="col-md-12 text-center">
-                    <img src="https://minio.dnaroma.eu/sekai-assets/stamp/stamp0395_rip/stamp0395/stamp0395.png"> 
+                    <div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
                     <br>
-                    <h1>404 Not Found</h1>
+                    <small>Executing command from PoP... Please wait!</small>
                 </div>
             </div>
         </div>
