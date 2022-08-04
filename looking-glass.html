@@ -55,7 +55,7 @@
             font-family: "Oxygen Mono", monospace;
         }
 
-        .text-monospace-defaut {
+        .text-monospace-default {
             font-family: "Oxygen Mono", monospace;
         }
     </style>
@@ -172,7 +172,7 @@
                         <div class="card border-0 rounded-0 p-3 shadow-sm" class="search-container">
                             <div class="search-box">
                                 <form onsubmit="executeCommand(this.search.value); return false;">
-                                    <input type="text" name="search" class="form-control text-monospace-default rounded-0" id="search-item">
+                                    <input type="text" name="search" class="form-control text-monospace-default rounded-0" id="search-item" autocomplete="off">
                                     <a href="#" onclick="executeCommand(this.parentElement.search.value);">
                                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                             <use xlink:href="#glass" />
