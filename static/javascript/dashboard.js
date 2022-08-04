@@ -17,98 +17,7 @@
 var dataLoadedComplete = false;
 var myChart = null;
 
-const popInfo = {
-    "pop.nyo.network.stypr.com": {
-        "name": "New York",
-        "country": "us",
-    },
-    "pop.fre.network.stypr.com": {
-        "name": "Fremont",
-        "country": "us",
-    },
-    "pop.par.network.stypr.com": {
-        "name": "Paris",
-        "country": "fr",
-    },
-    "pop.sel.network.stypr.com": {
-        "name": "Seoul",
-        "country": "kr",
-    },
-};
-const popInfoKeys = Object.keys(popInfo);
-const dataLoaded = {
-    'infrastructure': {},
-    'prefixes': {},
-    'connectivity': {},
-    'popDead': [],
-};
-
 /***********/
-
-const isObject = (item) => {
-    return (item && typeof item === 'object' && !Array.isArray(item));
-}
-
-const mergeDeep = (target, ...sources) => {
-    if (!sources.length) return target;
-    const source = sources.shift();
-
-    if (isObject(target) && isObject(source)) {
-        for (const key in source) {
-            if (isObject(source[key])) {
-                if (!target[key]) Object.assign(target, {
-                    [key]: {}
-                });
-                mergeDeep(target[key], source[key]);
-            } else {
-                Object.assign(target, {
-                    [key]: source[key]
-                });
-            }
-        }
-    }
-    return mergeDeep(target, ...sources);
-}
-
-const domCross = `
-    <svg class="bi d-block" width="24" height="24">
-        <use xlink:href="#dead" />
-    </svg>
-`;
-
-const isIPAddress = (ip, prefix = false) => {
-    const regexV6 = /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/gi;
-    const regexV4 = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;
-    const regexPrefixV6 = /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))\/[0-9]{1,3}$/gi;
-    const regexPrefixV4 = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\/[0-9]{1,3}$/gi;
-
-    if (regexV6.test(ip)) return "v6";
-    if (regexV4.test(ip)) return "v4";
-    if (prefix) {
-        if (regexPrefixV6.test(ip)) return "v6";
-        if (regexPrefixV4.test(ip)) return "v4";
-    }
-    return false;
-};
-
-const generateRandomNumber = (min = 52, max = 235) => Math.floor(Math.random() * (max - min + 1) + min);
-const generateRandomColor = () => {
-    return `rgb(${generateRandomNumber()}, ${generateRandomNumber()}, ${generateRandomNumber()})`;
-};
-
-const fetchTimeout = async (resource, options = {}) => {
-    let {
-        timeout = 5000
-    } = options;
-    let controller = new AbortController();
-    let id = setTimeout(() => controller.abort(), timeout);
-    let response = await fetch(resource, {
-        ...options,
-        signal: controller.signal
-    });
-    clearTimeout(id);
-    return response;
-};
 
 const ping = async (url, callback) => {
     let startTime = Date.now()
@@ -203,6 +112,10 @@ const fetchPrefixes = async () => {
     return result;
 };
 
+/*
+    This function is vulnerable, but hopefully nobody could exploit the bug.. ^-^
+    Good luck on exploiting my backdoored code! I won't be fixing the bug.
+*/
 const fetchConnectivity = async () => {
     const result = {
         'upstreams': null,
@@ -264,9 +177,9 @@ const renderExchanges = async () => {
         tempResult += `
             <tr class="${ !(exchangeInfo.ip.v4 || exchangeInfo.ip.v6) ? 'text-bg-warning' : '' }">
                 <td align=right>
-                    <a href="https://bgp.tools/as/${ exchangeInfo.asn }" class="text-black">
+                    <a href="https://bgp.tools/as/${ escapeHTML(exchangeInfo.asn) }" class="text-black">
                         <span class="text-monospace">
-                            ${ exchangeInfo.asn }
+                            ${ escapeHTML(exchangeInfo.asn) }
                         </span>
                     </a>
                 </td>
@@ -275,13 +188,13 @@ const renderExchanges = async () => {
                     ${ escapeHTML(exchangeName) }
                 </td>
                 <td>
-                    ${ exchangeInfo.ip.v4 ? exchangeInfo.ip.v4 : domCross }
+                    ${ exchangeInfo.ip.v4 ? escapeHTML(exchangeInfo.ip.v4) : domCross }
                 </td>
                 <td>
-                    ${ exchangeInfo.ip.v6 ? exchangeInfo.ip.v6 : domCross }
+                    ${ exchangeInfo.ip.v6 ? escapeHTML(exchangeInfo.ip.v6) : domCross }
                 </td>
                 <td>
-                    ${ exchangeInfo.speed }
+                    ${ escapeHTML(exchangeInfo.speed) }
                 </td>
             </tr>
         `;
@@ -327,9 +240,9 @@ const renderConnectivity = async () => {
         tempResult += `
             <tr>
                 <td align=right>
-                    <a href="https://bgp.tools/as/${asnName}" class="text-black">
+                    <a href="https://bgp.tools/as/${ asnName}" class="text-black">
                         <span class="text-monospace">
-                            ${escapeHTML(asnName)}
+                            ${ escapeHTML(asnName) }
                         </span>
                     </a>
                 </td>
@@ -344,7 +257,7 @@ const renderConnectivity = async () => {
                     ${ asnInfo.version.includes("v6") ? '<span class="badge text-bg-primary">IPv6</span>' : '' }
                 </td>
                 <td>
-                    ${ asnInfo.speed }
+                    ${ escapeHTML(asnInfo.speed) }
                 </td>
             </tr>
         `;
@@ -388,12 +301,12 @@ const renderPrefixes = async () => {
             <tr>
                 <td align=right>
                     <span class="text-monospace">
-                        ${prefixInfo.version}
+                        ${ escapeHTML(prefixInfo.version) }
                     </span>
                 </td>
                 <td>
-                    <span class="flag-icon-${(prefixInfo.type == "anycast") ? "un" : prefixInfo.announce_country[0] } flag-icon"></span>
-                    ${escapeHTML(prefixName)}
+                    <span class="flag-icon-${ (prefixInfo.type == "anycast") ? "un" : escapeHTML(prefixInfo.announce_country[0]) } flag-icon"></span>
+                    ${ escapeHTML(prefixName) }
                 </td>
                 <td>stypr LLC Network</td>
                 <td>
@@ -447,7 +360,7 @@ const renderInfrastructure = async (type = "total") => {
                     ticks: {
                         beginAtZero: false,
                         callback: (value) => {
-                            return `${value/1000000} MiB`;
+                            return `${ value/1000000 } MiB`;
                         }
                     }
                 }
@@ -462,15 +375,15 @@ const renderInfrastructure = async (type = "total") => {
         tempOutput += `
             <div id="" class="lh-1 pt-1 d-flex align-items-center w-100">
                 <div class="p-0 pt-2">
-                    <span class="flag-icon-${popInfo[popInfoKeys[i]].country} flag-icon" style="font-size: 32pt;"></span><br>
+                    <span class="flag-icon-${ escapeHTML(popInfo[popInfoKeys[i]].country) } flag-icon" style="font-size: 32pt;"></span><br>
                     <span class="badge no-round ${ !dataLoaded.popDead.includes(popInfoKeys[i]) ? "text-bg-success" : "text-bg-danger" } mt-1 text-center w-100" style="font-size: 8pt;">
                         ${ !dataLoaded.popDead.includes(popInfoKeys[i]) ? "ACTIVE" : "ERROR" }
                     </span>
                 </div>
                 <div class="p-2">
-                    <b>${ popInfo[popInfoKeys[i]].name }</b><br>
+                    <b>${ escapeHTML(popInfo[popInfoKeys[i]].name) }</b><br>
                     <span class="text-monospace">
-                        ${ popInfo[popInfoKeys[i]].version ? popInfo[popInfoKeys[i]].version : "unknown" }
+                        ${ popInfo[popInfoKeys[i]].version ? escapeHTML(popInfo[popInfoKeys[i]].version) : "unknown" }
                     </span>
                     </div>
             </div>`;
