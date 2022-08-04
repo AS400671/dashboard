@@ -204,4 +204,5 @@ body {
 
 .header-link-group .nav-link.active {
     color: #888;
+    cursor: default;
 }
