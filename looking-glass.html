@@ -24,7 +24,7 @@
     <link href="/static/stylesheet/bootstrap.css" rel="stylesheet">
     <link href="/static/stylesheet/bootstrap.stypr.css?2208041520" rel="stylesheet">
     <style>
-        .search-box{
+        .search-box {
             position: relative;
         }
 
@@ -46,7 +46,7 @@
             border-color: #aaccaa;
         }
 
-        .search-box .form-control:focus + svg {
+        .search-box .form-control:focus + a svg {
             color: #aaccaa !important;
         }
 
@@ -168,17 +168,26 @@
         <div class="container">
             <div class="align-items-center my-5" id="search-bar">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-md-9 col-xl-8">
+                    <div class="col-sm-12 col-md-9 col-xl-8">
                         <div class="card border-0 rounded-0 p-3 shadow-sm" class="search-container">
                             <div class="search-box">
-                                <input type="text" class="form-control text-monospace-default rounded-0" disabled id="search-item">
-                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                                    <use xlink:href="#glass" />
-                                </svg>
+                                <form onsubmit="executeCommand(this.search.value); return false;">
+                                    <input type="text" name="search" class="form-control text-monospace-default rounded-0" id="search-item">
+                                    <a href="#" onclick="executeCommand(this.parentElement.search.value);">
+                                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                            <use xlink:href="#glass" />
+                                        </svg>
+                                    </a>
+                                </form>
                             </div>
-                                <div class="search-help">
-                                <h6 class="pt-5 pb-0">Available Commands</h6>
-                                <div id="" class="lh-1 pt-0 d-flex align-items-center w-100">
+                            <div id="error-search" class="d-none d-flex align-items-center p-3 my-2 text-white bg-danger shadow-sm">
+                                <div class="lh-1">
+                                    <small id="error-text">Please enter a valid IP address.</small>
+                                </div>
+                            </div>
+                            <div class="search-help">
+                                <h6 class="pt-4 pb-0">Available Commands</h6>
+                                <div class="lh-1 pt-0 d-flex align-items-center w-100">
                                     <div class="p-2">
                                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                             <use xlink:href="#ping" />
@@ -192,7 +201,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div id="" class="lh-1 pt-2 d-flex align-items-center w-100">
+                                <div class="text-muted lh-1 pt-2 d-flex align-items-center w-100">
                                     <div class="p-2">
                                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                             <use xlink:href="#traceroute" />
@@ -206,7 +215,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div id="" class="lh-1 pt-2 d-flex align-items-center w-100">
+                                <div class="text-muted lh-1 pt-2 d-flex align-items-center w-100">
                                     <div class="p-2">
                                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                             <use xlink:href="#protocol" />
@@ -220,7 +229,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div id="" class="lh-1 pt-2 d-flex align-items-center w-100">
+                                <div class="text-muted lh-1 pt-2 d-flex align-items-center w-100">
                                     <div class="p-2">
                                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                             <use xlink:href="#route" />
@@ -239,18 +248,37 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="d-none align-items-center p-5 my-5" id="loading-screen">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="spinner-grow" role="status">
-                        <span class="visually-hidden">Loading...</span>
+            <div class="d-none align-items-center p-5 my-5" id="loading-screen">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="spinner-grow" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <small>Executing command from PoP... Please wait!</small>
                     </div>
                 </div>
-                <div class="col-md-12 text-center">
-                    <br>
-                    <small>Executing command from PoP... Please wait!</small>
+            </div>
+
+            <div class="d-none align-items-center my-5" id="page-ping">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-9 my-3 p-0 bg-body shadow-sm">
+                        <table class="table table-responsive mb-0">
+                            <thead class="table-dark">
+                                <th>PoP</th>
+                                <th>avg</th>
+                                <th>min</th>
+                                <th>max</th>
+                                <th>mdev</th>
+                                <th>loss</th>
+                            </thead>
+                            <tbody id="ping-body">
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -297,6 +325,7 @@
     </footer>
 
     <script src="/static/javascript/init.js"></script>
+    <script src="/static/javascript/looking-glass.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
