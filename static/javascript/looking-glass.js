@@ -79,35 +79,40 @@ const renderPing = async (ipAddress) => {
     const domPingBody = document.querySelector("#ping-body");
     const fetchOutput = await fetchPing(ipAddress);
 
-    console.log(fetchOutput);
+    // console.log(fetchOutput);
     let tempResult = "";
     for (let popName of Object.keys(popInfo)) {
         
         let currPopInfo = popInfo[popName];
-        console.log(currPopInfo);
+        // console.log(currPopInfo);
         if(isObject(fetchOutput[popName])){
             tempResult += `
-                <tr>
+                <tr class="w-100">
                     <td class="lh-1">
                         <span class="flag-icon-${ popInfo[popName].country } flag-icon"></span>
                         <b>${ escapeHTML(popInfo[popName].name ) }</b>
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td>
-                        ${ fetchOutput[popName].avg }
+                    <td class="text-monospace-lg">
+                        ${ escapeHTML(fetchOutput[popName].avg) }ms
                     </td>
-                    <td>
-                        ${ fetchOutput[popName].min }
+                    <td class="text-monospace-lg">
+                        ${ escapeHTML(fetchOutput[popName].min) }ms
                     </td>
-                    <td>
-                        ${ fetchOutput[popName].max }
+                    <td class="text-monospace-lg">
+                        ${ escapeHTML(fetchOutput[popName].max) }ms
                     </td>
-                    <td>
-                        ${ fetchOutput[popName].mdev }
+                    <td class="text-monospace-lg">
+                        ${ escapeHTML(fetchOutput[popName].mdev) }ms
                     </td>
-                    <td>
-                        ${ fetchOutput[popName].loss }%
+                    <td class="text-monospace-lg t">
+                        ${ escapeHTML(fetchOutput[popName].loss) }%
+                    </td>
+                </tr>
+                <tr class="d-none">
+                    <td colspan=6 style="overflow-y: scroll;" class="text-bg-secondary p-3">
+                        <pre style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName].raw) }</pre>
                     </td>
                 </tr>
             `;
@@ -127,35 +132,6 @@ const renderPing = async (ipAddress) => {
             `;
         }
     };
-    /*
-    const renderExchanges = async () => {
-        const exchangesDOM = document.querySelector("#exchanges-body");
-        exchangesDOM.innerHTML = "";
-        const fetchOutput = dataLoaded.connectivity;
-        const listExchanges = {};
-        for (let exchange of Object.keys(fetchOutput.exchanges)) {
-            let exchangeInfo = fetchOutput.exchanges[exchange];
-            let exchangeIP = exchangeInfo.ip.length ? exchangeInfo.ip : null;
-            if (listExchanges[exchangeInfo.provider]) {
-                if (!listExchanges[exchangeInfo.provider].ip[exchangeInfo.version]) {
-                    listExchanges[exchangeInfo.provider].ip[exchangeInfo.version] = exchangeIP;
-                }
-            } else {
-                listExchanges[exchangeInfo.provider] = {
-                    ...exchangeInfo,
-                    'ip': {}
-                }
-                listExchanges[exchangeInfo.provider].ip[exchangeInfo.version] = exchangeIP;
-            }
-        }
-    
-        tempResult = "";
-        for (let exchangeName of Object.keys(listExchanges)) {
-            exchangeInfo = listExchanges[exchangeName];
-        }
-        exchangesDOM.innerHTML = tempResult;
-    };    
-    */
     document.querySelector("#page-ping").classList.remove("d-none");
     domPingBody.innerHTML = tempResult;
 };
