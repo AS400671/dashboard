@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="stypr, AS400671, Harold Kim, harold.kim">
     <meta name="google" content="notranslate">
     <meta name="theme-color" content="#f3fff3">
@@ -143,7 +143,7 @@
                     </div>
                     <div class="col-md-12 text-center">
                         <br>
-                        <small>Fetching latest information from PoPs.. Please wait!</small>
+                        <small>Fetching the latest information from routers.. Please wait!</small>
                     </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div class="mb-12">
                         <h1 class="h2">Prefixes</h1>
-                        <h6>List of prefixes announced by AS400671</h6>
+                        <h6>Announced prefixes from AS400671 routers</h6>
                     </div>
                 </div>
                 <div class="my-3 p-0 bg-body shadow-sm">
@@ -200,8 +200,8 @@
                         <thead class="table-dark">
                             <th>&nbsp;</th>
                             <th>Prefix</th>
-                            <th>Description</th>
-                            <th>RPKI</th>
+                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Description</th>
+                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">RPKI</th>
                         </thead>
                         <tbody id="prefixes-body">
                         </tbody>
@@ -213,7 +213,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div class="mb-12">
                         <h1 class="h2">Exchanges</h1>
-                        <h6>List of currently interconnected IXPs</h6>
+                        <h6>Currently interconnected IXPs(Internet Exchange Points)</h6>
                     </div>
                 </div>
                 <div class="my-3 p-0 bg-body shadow-sm">
@@ -221,8 +221,8 @@
                         <thead class="table-dark">
                             <th>&nbsp;</th>
                             <th>Exchange Name</th>
-                            <th>IPv4</th>
-                            <th>IPv6</th>
+                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">IPv4</th>
+                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">IPv6</th>
                             <th>Speed</th>
                         </thead>
                         <tbody id="exchanges-body">
@@ -235,7 +235,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <div class="mb-12">
                         <h1 class="h2">Connectivity</h1>
-                        <h6>List of upstreams and peers interconnected over exchanges</h6>
+                        <h6>Upstream providers and interconnected peers</h6>
                     </div>
                 </div>
                 <div class="my-3 p-0 bg-body shadow-sm">
@@ -244,7 +244,7 @@
                             <th>&nbsp;</th>
                             <th>Network Name</th>
                             <th>Type</th>
-                            <th>Speed</th>
+                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Speed</th>
                         </thead>
                         <tbody id="connectivity-body">
                         </tbody>
@@ -275,7 +275,7 @@
                         </a>
                     </li>
                     <li class="ms-3">
-                        <a class="text-muted" href="https://github.com/AS400671/dashboard">
+                        <a class="text-muted" href="https://github.com/AS400671">
                             <svg class="bi" width="24" height="24">
                                 <use xlink:href="#github" />
                             </svg>

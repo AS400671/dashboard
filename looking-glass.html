@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="stypr, AS400671, Harold Kim, harold.kim">
     <meta name="google" content="notranslate">
     <meta name="theme-color" content="#f3fff3">
@@ -261,20 +261,20 @@
                     </div>
                     <div class="col-md-12 text-center">
                         <br>
-                        <small>Executing command from PoP... Please wait!</small>
+                        <small>Executing the command from routers... Please wait!</small>
                     </div>
                 </div>
             </div>
 
             <div class="d-none align-items-center my-5" id="page-ping">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-md-9 my-3 p-0 bg-body shadow-sm">
-                        <table class="table table-hover table-responsive mb-0">
+                    <div class="col-sm-12 col-lg-8 col-xl-8 p-0 shadow-sm">
+                        <table class="table table-hover table-responsive mb-0 bg-body">
                             <thead class="table-dark">
                                 <th>PoP</th>
                                 <th class="text-center">avg</th>
-                                <th class="text-center">min</th>
-                                <th class="text-center">max</th>
+                                <th class="text-center d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">min</th>
+                                <th class="text-center d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">max</th>
                                 <th class="text-center">mdev</th>
                                 <th class="text-center">loss</th>
                             </thead>
@@ -318,10 +318,12 @@
             <div class="d-none align-items-center my-5" id="page-proto">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-9 my-3 p-0 bg-body shadow-sm">
-                        <table class="table table-responsive mb-0">
+                        <table class="table table-hover table-responsive mb-0">
                             <thead class="table-dark">
                                 <th>PoP</th>
-                                <th class="text-center">&nbsp;</th>
+                                <th class="text-center">import</th>
+                                <th class="text-center">prefer</th>
+                                <th class="text-center">export</th>
                             </thead>
                             <tbody id="proto-body">
                             </tbody>
@@ -354,7 +356,7 @@
                         </a>
                     </li>
                     <li class="ms-3">
-                        <a class="text-muted" href="https://github.com/AS400671/dashboard">
+                        <a class="text-muted" href="https://github.com/AS400671">
                             <svg class="bi" width="24" height="24">
                                 <use xlink:href="#github" />
                             </svg>

@@ -188,10 +188,10 @@ const renderExchanges = async () => {
                     <span class="flag-icon-${ exchangeInfo.country } flag-icon"></span>
                     ${ escapeHTML(exchangeName) }
                 </td>
-                <td>
+                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
                     ${ exchangeInfo.ip.v4 ? escapeHTML(exchangeInfo.ip.v4) : domCross }
                 </td>
-                <td>
+                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
                     ${ exchangeInfo.ip.v6 ? escapeHTML(exchangeInfo.ip.v6) : domCross }
                 </td>
                 <td>
@@ -257,7 +257,7 @@ const renderConnectivity = async () => {
                     ${ asnInfo.version.includes("v4") ? '<span class="badge text-bg-secondary">IPv4</span>' : '' }
                     ${ asnInfo.version.includes("v6") ? '<span class="badge text-bg-primary">IPv6</span>' : '' }
                 </td>
-                <td>
+                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
                     ${ escapeHTML(asnInfo.speed) }
                 </td>
             </tr>
@@ -309,8 +309,8 @@ const renderPrefixes = async () => {
                     <span class="flag-icon-${ (prefixInfo.type == "anycast") ? "un" : escapeHTML(prefixInfo.announce_country[0]) } flag-icon"></span>
                     ${ escapeHTML(prefixName) }
                 </td>
-                <td>stypr LLC Network</td>
-                <td>
+                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">stypr LLC Network</td>
+                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
                     <span class="badge text-bg-success">Implemented</span>
                 </td>
             </tr>
@@ -336,7 +336,7 @@ const renderInfrastructure = async (type = "total") => {
             label: popInfo[popInfoKeys[i]].name,
             data: fetchOutput[fetchOutputKeys[i]].total,
             lineTension: 0.3,
-            backgroundColor: 'transparent',
+            backgroundColor: color,
             borderWidth: 2,
             borderColor: color,
             pointBackgroundColor: color,

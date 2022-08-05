@@ -88,7 +88,7 @@ const fetchTraceroute = async (ipAddress) => {
     const result = {};
     let fetchResult = [];
     for (let popId = 0; popId < popInfoKeys.length; popId += 1) {
-        fetchResult.push(fetchTimeout(`https://${popInfoKeys[popId]}/api.php?method=traceroute&target=${ipAddress}&_=${generateRandomNumber(10*10, 10**11)}`)
+        fetchResult.push(fetchTimeout(`https://${popInfoKeys[popId]}/api.php?method=traceroute&target=${ipAddress}&_=${generateRandomNumber(10*10, 10**11)}`, timeoutSecond=15)
         .then(res => res.json())
         .then(r => r.result)
         .catch(r => {
@@ -145,13 +145,11 @@ const renderPing = async (ipAddress) => {
     const domBody = document.querySelector("#ping-body");
     const fetchOutput = await fetchPing(ipAddress);
 
-    // console.log(fetchOutput);
     let tempResult = "";
     let i = 0;
     for (let popName of Object.keys(popInfo)) {
         i += 1;
         let currPopInfo = popInfo[popName];
-        // console.log(currPopInfo);
         if(isObject(fetchOutput[popName])){
             tempResult += `
                 <tr class="w-100" onclick="toggleOutput('ping-${i}')" style="cursor: pointer;">
@@ -164,10 +162,10 @@ const renderPing = async (ipAddress) => {
                     <td class="text-monospace-lg align-middle text-center">
                         ${ fetchOutput[popName].avg ? escapeHTML(fetchOutput[popName].avg + "ms") : "*" }
                     </td>
-                    <td class="text-monospace-lg align-middle text-center">
+                    <td class="text-monospace-lg align-middle text-center d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
                         ${ fetchOutput[popName].min ? escapeHTML(fetchOutput[popName].min + "ms") : "*" }
                     </td>
-                    <td class="text-monospace-lg align-middle text-center">
+                    <td class="text-monospace-lg align-middle text-center d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
                         ${ fetchOutput[popName].min ? escapeHTML(fetchOutput[popName].max + "ms") : "*" }
                     </td>
                     <td class="text-monospace-lg align-middle text-center">
@@ -207,13 +205,11 @@ const renderTraceroute = async (ipAddress) => {
     const domBody = document.querySelector("#traceroute-body");
     const fetchOutput = await fetchTraceroute(ipAddress);
 
-    // console.log(fetchOutput);
     let tempResult = "";
     let i = 0;
     for (let popName of Object.keys(popInfo)) {
         i += 1;
         let currPopInfo = popInfo[popName];
-        // console.log(currPopInfo);
         if(fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
@@ -254,14 +250,11 @@ const renderBgpRoute = async (ipAddress) => {
     const domBody = document.querySelector("#bgproute-body");
     const fetchOutput = await fetchBgpRoute(ipAddress);
 
-    // console.log(fetchOutput);
     let tempResult = "";
     let i = 0;
     for (let popName of Object.keys(popInfo)) {
         i += 1;
         let currPopInfo = popInfo[popName];
-        // console.log(currPopInfo);
-        console.log(fetchOutput[popName]);
         if(fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
@@ -302,25 +295,52 @@ const renderBgpProto = async () => {
     const domBody = document.querySelector("#proto-body");
     const fetchOutput = await fetchBgpProto();
 
-    // console.log(fetchOutput);
     let tempResult = "";
     let i = 0;
     for (let popName of Object.keys(popInfo)) {
         i += 1;
         let currPopInfo = popInfo[popName];
-        // console.log(currPopInfo);
-        console.log(fetchOutput[popName]);
+
         if(fetchOutput[popName].length){
+            // Cut first line 
+            parseOutput = fetchOutput[popName].split("\n\n");
+            parseResult = {
+                'imported': 0,
+                'filtered': 0,
+                'exported': 0,
+                'preferred': 0,
+            };
+            
+            for(i in parseOutput){
+                countList = parseOutput[i].match("Routes:[ ]+([0-9]+) imported, ([0-9]+) filtered, ([0-9]+) exported, ([0-9]+) preferred");
+                if(!countList) continue;
+                parseResult.imported += parseInt(countList[1]);
+                parseResult.filtered += parseInt(countList[2]);
+                parseResult.exported += parseInt(countList[3]);
+                parseResult.preferred += parseInt(countList[4]);
+            }
+
             tempResult += `
-                <tr class="w-100">
+                <tr class="w-100" onclick="toggleOutput('proto-${i}')" style="cursor: pointer;">
                     <td class="lh-1">
                         <span class="flag-icon-${ currPopInfo.country } flag-icon"></span>
                         <b>${ escapeHTML(currPopInfo.name ) }</b>
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td class="text-monospace-lg align-middle">
-                        <pre style="background-color: #336633; color: #fff; white-space:pre-wrap;" class="text-monospace-default m-0 p-3">${ escapeHTML(fetchOutput[popName]) }</pre>
+                    <td class="text-monospace-lg align-middle text-center">
+                        ${ parseResult.imported }
+                    </td>
+                    <td class="text-monospace-lg align-middle text-center">
+                        ${ parseResult.preferred }
+                    </td>
+                    <td class="text-monospace-lg align-middle text-center">
+                        ${ parseResult.exported }
+                    </td>
+                </tr>
+                <tr class="d-none" id="output-proto-${i}">
+                    <td colspan=6 style="background-color: #363; color: #fff;" class="align-middle p-3">
+                        <pre style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName]) }</pre>
                     </td>
                 </tr>
             `;
@@ -333,10 +353,8 @@ const renderBgpProto = async () => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td align=center>
-                        <div class="text-center text-bg-danger text-white p-3">
-                            <b>Timeout</b>
-                        </div>
+                    <td colspan=4 align=center class="text-bg-warning align-middle">
+                        <b>Timeout</b>
                     </td>
                 </tr>
             `;
