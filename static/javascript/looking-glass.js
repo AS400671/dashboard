@@ -176,7 +176,7 @@ const renderPing = async (ipAddress) => {
                     </td>
                 </tr>
                 <tr class="d-none" id="output-ping-${i}">
-                    <td colspan=6 style="background-color: #363; color: #fff;" class="align-middle p-3">
+                    <td colspan=6 style="background-color: #010; color: #fff;" class="align-middle p-3">
                         <pre style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName].raw) }</pre>
                     </td>
                 </tr>
