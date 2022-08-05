@@ -1,3 +1,4 @@
+/* jshint -W104, -W119, -W083 */
 /*
 
                 d8                           
@@ -20,21 +21,21 @@ var myChart = null;
 /***********/
 
 const ping = async (url, callback) => {
-    let startTime = Date.now()
+    let startTime = Date.now();
     this.fetchTimeout(`${url}/api.php?cache=${+Date.now()}`, {
             mode: "no-cors",
             cache: "no-cache",
         })
         .then((r) => {
-            let endTime = Date.now()
-            let timeElapsed = endTime - startTime
+            let endTime = Date.now();
+            let timeElapsed = endTime - startTime;
             if (callback !== undefined) {
-                callback(timeElapsed)
+                callback(timeElapsed);
             }
         })
         .catch((r) => {
             callback(undefined);
-        })
+        });
 };
 
 const fetchInfrastructure = async () => {
@@ -79,7 +80,7 @@ const fetchInfrastructure = async () => {
         result[popInfoKeys[popId]] = fetchResult[popId];
     }
     return result;
-}
+};
 
 const fetchPrefixes = async () => {
     const result = {};
@@ -129,7 +130,7 @@ const fetchConnectivity = async () => {
             fetchTimeout(`https://${popInfoKeys[popId]}/api.php?method=connectivity&_=${generateRandomNumber(10*10, 10**11)}`)
             .then(res => res.json())
             .then(r => {
-                popInfo[popInfoKeys[popId]]['version'] = r.version;
+                popInfo[popInfoKeys[popId]].version = r.version;
                 return JSON.parse(r.result);
             })
             .catch(r => {
@@ -166,7 +167,7 @@ const renderExchanges = async () => {
             listExchanges[exchangeInfo.provider] = {
                 ...exchangeInfo,
                 'ip': {}
-            }
+            };
             listExchanges[exchangeInfo.provider].ip[exchangeInfo.version] = exchangeIP;
         }
     }
@@ -203,7 +204,7 @@ const renderExchanges = async () => {
 };
 
 const renderConnectivity = async () => {
-    const connectivityDOM = document.querySelector("#connectivity-body")
+    const connectivityDOM = document.querySelector("#connectivity-body");
     connectivityDOM.innerHTML = "";
     const fetchOutput = dataLoaded.connectivity;
 
@@ -221,10 +222,10 @@ const renderConnectivity = async () => {
                         ...asnInfo,
                         type: type,
                         version: [version]
-                    }
+                    };
                     // if speed is not provided, add exchange's speed
                     if (!asnInfo.speed) {
-                        speed = fetchOutput["exchanges"][listConnectivity[asn].exchange].speed
+                        speed = fetchOutput.exchanges[listConnectivity[asn].exchange].speed;
                         listConnectivity[asn].speed = speed;
                     }
                 }
@@ -266,7 +267,7 @@ const renderConnectivity = async () => {
 };
 
 const renderPrefixes = async () => {
-    const prefixDOM = document.querySelector("#prefixes-body")
+    const prefixDOM = document.querySelector("#prefixes-body");
     prefixDOM.innerHTML = "";
     const fetchOutput = dataLoaded.prefixes;
     const fetchOutputKeys = Object.keys(fetchOutput);
@@ -285,7 +286,7 @@ const renderPrefixes = async () => {
                     type: 'unicast',
                     announce_pop: [fetchOutputKeys[i]],
                     announce_country: [popInfo[fetchOutputKeys[i]].country]
-                }
+                };
             }
         });
     }
@@ -294,7 +295,7 @@ const renderPrefixes = async () => {
     // render elements
     let tempResult = "";
     for (let i = 0; i < listPrefixesKeys.length; i++) {
-        prefixName = listPrefixesKeys[i]
+        prefixName = listPrefixesKeys[i];
         prefixInfo = listPrefixes[listPrefixesKeys[i]];
 
         tempResult += `
@@ -324,7 +325,7 @@ const renderInfrastructure = async (type = "total") => {
     const ctx = document.getElementById('myChart');
     feather.replace({
         'aria-hidden': 'true'
-    })
+    });
     const chartLabels = fetchOutput[fetchOutputKeys[0]].hour;
     const chartDatasets = [];
 
@@ -366,7 +367,7 @@ const renderInfrastructure = async (type = "total") => {
                 }
             }
         },
-    })
+    });
 
     /* PoP information */
     let dompopInfoKeys = document.querySelector("#list-pop");
@@ -402,7 +403,7 @@ const updateCounter = async () => {
             let prefix = dataLoaded.prefixes[i][j];
             if (!prefixDuplicates.includes(prefix)) {
                 prefixDuplicates.push(prefix);
-                prefixCount += 1
+                prefixCount += 1;
             }
         }
     }
@@ -459,16 +460,16 @@ const fetchDashboard = async (currentPage) => {
     document.querySelectorAll(".nav-scroller .nav-link").forEach(e => {
         e.classList.remove("active");
     });
-    currentLink = document.querySelector(".nav-scroller .nav-link[href='#" + currentPage + "']")
+    currentLink = document.querySelector(".nav-scroller .nav-link[href='#" + currentPage + "']");
     if (currentLink) {
         currentLink.classList.add("active");
     } else {
-        currentLink = document.querySelector(".nav-scroller .nav-link[href='#infrastructure']")
+        currentLink = document.querySelector(".nav-scroller .nav-link[href='#infrastructure']");
         currentLink.classList.add("active");
     }
 
     document.querySelectorAll("[id^=page]").forEach(e => {
-        e.classList.add("d-none")
+        e.classList.add("d-none");
     });
     document.querySelector("#loading-screen").classList.remove("d-none");
 
