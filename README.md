@@ -1,9 +1,11 @@
 ## AS400671 Dashboard
 
-Main website for AS-STYPR(AS400671)
-
-Note: There is a vulnerability on this code, and It is not recommended to use this for production.
+Main website for AS-STYPR (AS400671)
 
 API and connectivity checkers are available in `./internal/`
 
-Licensed under MIT License.
+Under MIT License.
+
+## Important Note
+
+There is a vulnerability on this code, so it is highly not recommended to use this project for production.
