@@ -177,7 +177,7 @@ const renderExchanges = async () => {
         exchangeInfo = listExchanges[exchangeName];
         tempResult += `
             <tr class="${ !(exchangeInfo.ip.v4 || exchangeInfo.ip.v6) ? 'text-bg-warning' : '' }">
-                <td align=right>
+                <td class="text-end">
                     <a href="https://bgp.tools/as/${ escapeHTML(exchangeInfo.asn) }" class="text-black">
                         <span class="text-monospace">
                             ${ escapeHTML(exchangeInfo.asn) }
@@ -240,8 +240,8 @@ const renderConnectivity = async () => {
 
         tempResult += `
             <tr>
-                <td align=right>
-                    <a href="https://bgp.tools/as/${ asnName}" class="text-black">
+                <td class="text-end">
+                    <a href="https://bgp.tools/as/${ asnName }" class="text-black">
                         <span class="text-monospace">
                             ${ escapeHTML(asnName) }
                         </span>
@@ -251,7 +251,7 @@ const renderConnectivity = async () => {
                     <span class="flag-icon-${asnInfo.country} flag-icon"></span>
                     ${ escapeHTML(asnInfo.provider ? asnInfo.provider : asnInfo.name) }
                 </td>
-                <td>
+                <td class="align-middle">
                     ${ asnInfo.type == "upstreams" ? '<span class="badge text-bg-success">Upstream</span>' : '' }
                     <!-- ${ asnInfo.type == "downstreams" ? '<span class="badge text-bg-primary">Peer</span>' : '' } -->
                     ${ asnInfo.version.includes("v4") ? '<span class="badge text-bg-secondary">IPv4</span>' : '' }
@@ -300,7 +300,7 @@ const renderPrefixes = async () => {
 
         tempResult += `
             <tr>
-                <td align=right>
+                <td class="text-end">
                     <span class="text-monospace">
                         ${ escapeHTML(prefixInfo.version) }
                     </span>

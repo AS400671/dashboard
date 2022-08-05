@@ -206,3 +206,42 @@ body {
     color: #888;
     cursor: default;
 }
+
+.search-box {
+    position: relative;
+}
+
+.search-box svg {
+    position: absolute;
+    right: 13px;
+    top:15px;
+    color:#ced4da;
+}
+
+.search-box .form-control {
+    height: 50px;
+    background-color:#eeeeee69;
+}
+
+.search-box .form-control:focus {
+    background-color: #eeffee69;
+    box-shadow: none;
+    border-color: #aaccaa;
+}
+
+.search-box .form-control:focus + a svg {
+    color: #aaccaa !important;
+}
+
+.text-monospace-lg {
+    font-size: 10pt;
+    font-family: "Oxygen Mono", monospace;
+}
+
+.text-monospace-default {
+    font-family: "Oxygen Mono", monospace;
+}
+
+.text-pre-wrap {
+    white-space: pre-wrap;
+}
