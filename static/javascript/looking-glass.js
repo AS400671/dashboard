@@ -192,8 +192,8 @@ const renderPing = async (ipAddress) => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td colspan=5 align=center class="text-bg-warning">
-                        <b>Timed out.</b>
+                    <td colspan=5 align=center class="text-bg-warning align-middle">
+                        <b>Timeout</b>
                     </td>
                 </tr>
             `;
@@ -214,7 +214,7 @@ const renderTraceroute = async (ipAddress) => {
         i += 1;
         let currPopInfo = popInfo[popName];
         // console.log(currPopInfo);
-        if(fetchOutput[popName]){
+        if(fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
                     <td class="lh-1">
@@ -237,8 +237,10 @@ const renderTraceroute = async (ipAddress) => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td colspan=5 align=center class="text-bg-warning">
-                        <b>Timed out.</b>
+                    <td align=center>
+                        <div class="text-center text-bg-danger text-white p-3">
+                            <b>Timeout</b>
+                        </div>
                     </td>
                 </tr>
             `;
@@ -260,7 +262,7 @@ const renderBgpRoute = async (ipAddress) => {
         let currPopInfo = popInfo[popName];
         // console.log(currPopInfo);
         console.log(fetchOutput[popName]);
-        if(fetchOutput[popName]){
+        if(fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
                     <td class="lh-1">
@@ -283,8 +285,10 @@ const renderBgpRoute = async (ipAddress) => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td colspan=5 align=center class="text-bg-warning">
-                        <b>Timed out.</b>
+                    <td align=center>
+                        <div class="text-center text-bg-danger text-white p-3">
+                            <b>Timeout</b>
+                        </div>
                     </td>
                 </tr>
             `;
@@ -306,7 +310,7 @@ const renderBgpProto = async () => {
         let currPopInfo = popInfo[popName];
         // console.log(currPopInfo);
         console.log(fetchOutput[popName]);
-        if(fetchOutput[popName]){
+        if(fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
                     <td class="lh-1">
@@ -329,8 +333,10 @@ const renderBgpProto = async () => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td colspan=5 align=center class="text-bg-warning">
-                        <b>Timed out.</b>
+                    <td align=center>
+                        <div class="text-center text-bg-danger text-white p-3">
+                            <b>Timeout</b>
+                        </div>
                     </td>
                 </tr>
             `;
