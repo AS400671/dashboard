@@ -107,9 +107,9 @@ const isDomainName = (domainName) => {
     return regexDomain.test(domainName);
 };
 
-const fetchTimeout = async (resource, options = {}) => {
+const fetchTimeout = async (resource, options = {}, timeoutSecond = 5) => {
     let {
-        timeout = 5000
+        timeout = timeoutSecond * 1000
     } = options;
     let controller = new AbortController();
     let id = setTimeout(() => controller.abort(), timeout);
