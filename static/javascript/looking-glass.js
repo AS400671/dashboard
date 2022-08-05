@@ -177,7 +177,7 @@ const renderPing = async (ipAddress) => {
                 </tr>
                 <tr class="d-none" id="output-ping-${i}">
                     <td colspan=6 style="background-color: #010; color: #fff;" class="align-middle p-3">
-                        <pre style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName].raw) }</pre>
+                        <pre class="mb-0" style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName].raw) }</pre>
                     </td>
                 </tr>
             `;
@@ -211,8 +211,9 @@ const renderTraceroute = async (ipAddress) => {
         i += 1;
         let currPopInfo = popInfo[popName];
         if(fetchOutput[popName].length){
+            tempAsPath = [...new Set(fetchOutput[popName].match(/\[(AS([0-9]+)|\*)\]/gi))].join(" | ");
             tempResult += `
-                <tr class="w-100">
+                <tr class="w-100" onclick="toggleOutput('traceroute-${i}')" style="cursor: pointer;">
                     <td class="lh-1">
                         <span class="flag-icon-${ currPopInfo.country } flag-icon"></span>
                         <b>${ escapeHTML(currPopInfo.name ) }</b>
@@ -220,7 +221,15 @@ const renderTraceroute = async (ipAddress) => {
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
                     <td class="text-monospace-lg align-middle">
-                        <pre style="background-color: #336633; color: #fff; white-space:pre-wrap;" class="text-monospace-default m-0 p-3">${ escapeHTML(fetchOutput[popName]) }</pre>
+                        <b>${ fetchOutput[popName].split("\n").length - 1 }</b>
+                    </td>
+                    <td class="text-monospace-lg align-middle">
+                        ${ tempAsPath.replace(/(\[|\])/gi, "").toUpperCase().replace(/\|/gi, "&raquo;") }
+                    </td>
+                </tr>
+                <tr class="d-none" id="output-traceroute-${i}">
+                    <td colspan=6 style="background-color: #010; color: #fff;" class="align-middle p-3">
+                        <pre class="mb-0" style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName].trim()) }</pre>
                     </td>
                 </tr>
             `;
@@ -255,7 +264,7 @@ const renderBgpRoute = async (ipAddress) => {
     for (let popName of Object.keys(popInfo)) {
         i += 1;
         let currPopInfo = popInfo[popName];
-        if(fetchOutput[popName].length){
+        if(!fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
                     <td class="lh-1">
@@ -264,8 +273,10 @@ const renderBgpRoute = async (ipAddress) => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
+                </tr>
+                <tr class="w-100">
                     <td class="text-monospace-lg align-middle">
-                        <pre style="background-color: #336633; color: #fff; white-space:pre-wrap;" class="text-monospace-default m-0 p-3">${ escapeHTML(fetchOutput[popName]) }</pre>
+                        <pre style="background-color: #010; color: #fff; white-space:pre-wrap;" class="text-monospace-default m-0 p-3">${ escapeHTML(fetchOutput[popName]) }</pre>
                     </td>
                 </tr>
             `;
@@ -339,8 +350,8 @@ const renderBgpProto = async () => {
                     </td>
                 </tr>
                 <tr class="d-none" id="output-proto-${i}">
-                    <td colspan=6 style="background-color: #363; color: #fff;" class="align-middle p-3">
-                        <pre style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName]) }</pre>
+                    <td colspan=6 style="background-color: #010; color: #fff;" class="align-middle p-3">
+                        <pre class="mb-0" style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName]) }</pre>
                     </td>
                 </tr>
             `;
@@ -418,11 +429,12 @@ const executeCommand = async (command) => {
 };
 
 (() => {
-    const searchRef = decodeURIComponent(location.hash.substring(1));
+    const searchRef = decodeURIComponent(location.hash.substring(1)).replace(/\+/g, " ");
     const searchInput = document.querySelector(".search-box .form-control");
 
     if(searchRef){
         searchInput.value = searchRef;
+        executeCommand(searchInput.value);
     }
     searchInput.addEventListener('input', (e) => {
         if(e.target.value){
