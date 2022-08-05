@@ -177,7 +177,7 @@ const renderPing = async (ipAddress) => {
                 </tr>
                 <tr class="d-none" id="output-ping-${i}">
                     <td colspan=6 style="background-color: #010; color: #fff;" class="align-middle p-3">
-                        <pre class="mb-0" style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName].raw) }</pre>
+                        <pre class="mb-0 text-pre-wrap">${ escapeHTML(fetchOutput[popName].raw) }</pre>
                     </td>
                 </tr>
             `;
@@ -229,7 +229,7 @@ const renderTraceroute = async (ipAddress) => {
                 </tr>
                 <tr class="d-none" id="output-traceroute-${i}">
                     <td colspan=6 style="background-color: #010; color: #fff;" class="align-middle p-3">
-                        <pre class="mb-0" style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName].trim()) }</pre>
+                        <pre class="mb-0 text-pre-wrap">${ escapeHTML(fetchOutput[popName].trim()) }</pre>
                     </td>
                 </tr>
             `;
@@ -351,7 +351,7 @@ const renderBgpProto = async () => {
                 </tr>
                 <tr class="d-none" id="output-proto-${i}">
                     <td colspan=6 style="background-color: #010; color: #fff;" class="align-middle p-3">
-                        <pre class="mb-0" style="white-space:pre-wrap;">${ escapeHTML(fetchOutput[popName]) }</pre>
+                        <pre class="mb-0 text-pre-wrap">${ escapeHTML(fetchOutput[popName]) }</pre>
                     </td>
                 </tr>
             `;
