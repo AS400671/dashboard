@@ -264,7 +264,7 @@ const renderBgpRoute = async (ipAddress) => {
     for (let popName of Object.keys(popInfo)) {
         i += 1;
         let currPopInfo = popInfo[popName];
-        if(fetchOutput[popName].length){
+        if(!fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
                     <td class="lh-1">
@@ -276,7 +276,7 @@ const renderBgpRoute = async (ipAddress) => {
                 </tr>
                 <tr class="w-100">
                     <td class="text-monospace-lg align-middle">
-                        <pre style="background-color: #010; color: #fff;" class="text-pre-wrap text-monospace-default m-0 p-3">${ escapeHTML(fetchOutput[popName]) }</pre>
+                        <pre style="background-color: #010; color: #fff; white-space:pre-wrap;" class="text-monospace-default m-0 p-3">${ escapeHTML(fetchOutput[popName]) }</pre>
                     </td>
                 </tr>
             `;
@@ -289,10 +289,8 @@ const renderBgpRoute = async (ipAddress) => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                </tr>
-                <tr class="w-100">
-                    <td class="text-monospace-lg align-middle">
-                        <div class="text-center text-bg-danger text-white p-3" colspan=2>
+                    <td align=center>
+                        <div class="text-center text-bg-danger text-white p-3">
                             <b>Timeout</b>
                         </div>
                     </td>
