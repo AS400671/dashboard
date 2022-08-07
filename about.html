@@ -191,6 +191,50 @@
                                 </ul>
                             </h6>
                         </div>
+                        <div class="my-3 p-3 bg-body shadow-sm">
+                            <h4>Enforced Filters</h4>
+                            <br>
+                            <h6>
+                                <ul>
+                                    <li>
+                                        <b>is_valid_rpki</b><br>
+                                        Reject invalid <a href="https://en.wikipedia.org/wiki/Resource_Public_Key_Infrastructure">RPKI</a> routes
+                                        <br><br>
+                                    </li>
+                                    <li>
+                                        <b>is_martian_[v4|v6]</b><br>
+                                        Reject bogon prefixes
+                                        <br><br>
+                                    </li>
+                                    <li>
+                                        <b>is_martian_asn</b><br>
+                                        Reject bogon ASNs
+                                        <br><br>
+                                    </li>
+                                    <li>
+                                        <b>is_small_prefix[v4|v6]</b><br>
+                                        Reject small prefixes
+                                        <br><br>
+                                    </li>
+                                    <li>
+                                        <b>is_[short|long]_aspath</b><br>
+                                        Reject invalid AS paths
+                                        <br><br>
+
+                                    </li>
+                                    <li>
+                                        <b>in_transit_path</b><br>
+                                        Reject paths containing known transits on IXPs
+                                        <br><br>
+                                    </li>
+                                    <li>
+                                        <b>is_dprk_route</b><br>
+                                        Reject <a href="https://www.hrnk.org/">North Korea</a> routes
+                                        <br><br>
+                                    </li>
+                                </ul>
+                            </h6>
+                        </div>
                     </div>
                 </div>
             </div>
