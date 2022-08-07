@@ -164,6 +164,7 @@ const renderExchanges = async () => {
                 listExchanges[exchangeInfo.provider].ip[exchangeInfo.version] = exchangeIP;
             }
         } else {
+            if(exchangeInfo.provider == "bgp.tools") continue;
             listExchanges[exchangeInfo.provider] = {
                 ...exchangeInfo,
                 'ip': {}
