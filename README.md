@@ -4,7 +4,7 @@ Main website for AS-STYPR (AS400671)
 
 API and connectivity checkers are available in `./internal/`
 
-Under MIT License.
+Under MIT License. Respective copyrights apply.
 
 ## Important Note
 
