@@ -164,7 +164,6 @@ const renderExchanges = async () => {
                 listExchanges[exchangeInfo.provider].ip[exchangeInfo.version] = exchangeIP;
             }
         } else {
-            if(exchangeInfo.provider == "bgp.tools") continue;
             listExchanges[exchangeInfo.provider] = {
                 ...exchangeInfo,
                 'ip': {}
@@ -310,9 +309,8 @@ const renderPrefixes = async () => {
                     <span class="flag-icon-${ (prefixInfo.type == "anycast") ? "un" : escapeHTML(prefixInfo.announce_country[0]) } flag-icon"></span>
                     ${ escapeHTML(prefixName) }
                 </td>
-                <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">stypr LLC Network</td>
                 <td class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
-                    <span class="badge text-bg-success">Implemented</span>
+                    ${ prefixDescriptionInfo[prefixName] ? escapeHTML(prefixDescriptionInfo[prefixName]) : "stypr LLC network" }
                 </td>
             </tr>
         `;
@@ -371,7 +369,7 @@ const renderInfrastructure = async (type = "total") => {
     });
 
     /* PoP information */
-    let dompopInfoKeys = document.querySelector("#list-pop");
+    let domPopInfoKeys = document.querySelector("#list-pop");
     let tempOutput = "";
     for (let i in popInfoKeys) {
         tempOutput += `
@@ -391,7 +389,58 @@ const renderInfrastructure = async (type = "total") => {
             </div>`;
 
     }
-    dompopInfoKeys.innerHTML = tempOutput;
+    domPopInfoKeys.innerHTML = tempOutput;
+};
+
+const renderCommunity = async () => {
+    const communityDOM = document.querySelector("#community-body");
+    communityDOM.innerHTML = "";
+    const fetchOutput = dataLoaded.community;
+
+    let tempResult = "";
+    for (let i = 0; i < fetchOutput.length; i++) {
+
+        let prefClass = "text-bg-dark";
+        
+        if(fetchOutput[i].pref > 0) prefClass = "text-bg-danger";
+        if(fetchOutput[i].pref >= 100) prefClass = "text-bg-info";
+        if(fetchOutput[i].pref >= 150) prefClass = "text-bg-info";
+        if(fetchOutput[i].pref >= 200) prefClass = "text-bg-success";
+        tempResult += `
+            <tr>
+                <td class="text-monospace text-end align-middle">${ fetchOutput[i].id }</td>
+                <td class="align-middle text-end">
+                    <span class="badge ${ prefClass } w-100">
+                        ${ fetchOutput[i].pref }
+                    </span>
+                </td>
+                <td class="align-middle">${ fetchOutput[i].description }</td>
+            </tr>`;
+    }
+    communityDOM.innerHTML = tempResult;
+};
+
+const renderFilter = async () => {
+    const communityDOM = document.querySelector("#filter-body");
+    communityDOM.innerHTML = "";
+    const fetchOutput = dataLoaded.filters;
+
+    let tempResult = "";
+    for (let i = 0; i < fetchOutput.length; i++) {
+
+        let prefClass = "text-bg-dark";
+        
+        if(fetchOutput[i].pref > 0) prefClass = "text-bg-danger";
+        if(fetchOutput[i].pref >= 100) prefClass = "text-bg-info";
+        if(fetchOutput[i].pref >= 150) prefClass = "text-bg-info";
+        if(fetchOutput[i].pref >= 200) prefClass = "text-bg-success";
+        tempResult += `
+            <tr>
+                <td class="text-monospace text-end align-middle">${ fetchOutput[i].name }</td>
+                <td class="align-middle">${ fetchOutput[i].description }</td>
+            </tr>`;
+    }
+    communityDOM.innerHTML = tempResult;
 };
 
 const updateCounter = async () => {
@@ -449,6 +498,12 @@ const updateCounter = async () => {
     }
     domConnectivityCounter.innerText = connectivityCount;
 
+    /* Add community and BGP Filter counter */
+    let domFilterCounter = document.querySelector("#counter-filter");
+    let domCommunityCounter = document.querySelector("#counter-community");
+    domFilterCounter.innerText = dataLoaded.filters.length;
+    domCommunityCounter.innerText = dataLoaded.community.length;
+
     /* Finally add dead endpoints */
     let domAliveCounter = document.querySelector("#counter-pop-alive");
     let domDeadCounter = document.querySelector("#counter-pop-dead");
@@ -499,9 +554,19 @@ const fetchDashboard = async (currentPage) => {
             await renderExchanges();
             break;
 
+        case "community":
+            document.querySelector("#page-community").classList.remove("d-none");
+            await renderCommunity();
+            break;
+
+        case "filter":
+            document.querySelector("#page-filter").classList.remove("d-none");
+            await renderFilter();
+            break;
+        
         case "infrastrcutrure":
         default:
-            document.querySelector("#page-infrastrcuture").classList.remove("d-none");
+            document.querySelector("#page-infrastructure").classList.remove("d-none");
             await renderInfrastructure();
             break;
     }
