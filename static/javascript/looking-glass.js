@@ -242,10 +242,8 @@ const renderTraceroute = async (ipAddress) => {
                         <br>
                         <span class="text-monospace">${ escapeHTML(popName) }</span>
                     </td>
-                    <td align=center>
-                        <div class="text-center text-bg-danger text-white p-3">
+                    <td colspan=2 align=center class="text-bg-warning align-middle">
                             <b>Timeout</b>
-                        </div>
                     </td>
                 </tr>
             `;
@@ -264,7 +262,8 @@ const renderBgpRoute = async (ipAddress) => {
     for (let popName of Object.keys(popInfo)) {
         i += 1;
         let currPopInfo = popInfo[popName];
-        if(fetchOutput[popName].length){
+
+        if(fetchOutput[popName] && fetchOutput[popName].length){
             tempResult += `
                 <tr class="w-100">
                     <td class="lh-1">
@@ -314,7 +313,7 @@ const renderBgpProto = async () => {
         i += 1;
         let currPopInfo = popInfo[popName];
 
-        if(fetchOutput[popName].length){
+        if(fetchOutput[popName] && fetchOutput[popName].length){
             // Cut first line 
             parseOutput = fetchOutput[popName].split("\n\n");
             parseResult = {
@@ -414,7 +413,7 @@ const executeCommand = async (command) => {
                     break;
                 case "route":
                     target = parseCommand[2];
-                    if(!isIPAddress(target)) {
+                    if(!isIPAddress(target, true)) {
                         return raiseError("Please enter a valid IP address.");
                     }
                     await renderBgpRoute(target);
