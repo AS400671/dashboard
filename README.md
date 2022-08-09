@@ -1,8 +1,6 @@
 ## AS400671 Dashboard
 
-Main website for AS-STYPR (AS400671)
-
-API and connectivity checkers are available in `./internal/`
+Main website for AS400671.
 
 Under MIT License. Respective copyrights apply.
 
