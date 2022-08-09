@@ -579,6 +579,7 @@ const fetchDashboard = async (currentPage) => {
             return false;
         }
         let currentPage = location.hash.slice(1);
+        renderByAs("400671");
         fetchDashboard(currentPage);
     };
     fetchDashboard(location.hash.slice(1));
