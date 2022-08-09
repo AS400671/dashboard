@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@4.1.6/css/flag-icons.min.css">
     </noscript>
     <link href="/static/stylesheet/bootstrap.css" rel="stylesheet">
-    <link href="/static/stylesheet/bootstrap.stypr.css?2208090020" rel="stylesheet">
+    <link href="/static/stylesheet/bootstrap.stypr.css?2208091946" rel="stylesheet">
 </head>
 
 <body class="bg-light d-flex flex-column h-100">
@@ -181,7 +181,19 @@
                     <div class="col-lg-9">
                         <div class="my-3 p-3 bg-body shadow-sm">
                             <h4>Route Propagation Graph</h4>
-                            <img src="https://bgp.he.net/graphs/as400671-ipv6.svg" class="p-0 my-3 w-100">
+                            <div class="pt-3" class="box display" id="display"></div>
+                            <div class="row pt-5 mt-5 mb-5" id="loading-screen-graph">
+                                <div class="col-md-12 text-center">
+                                    <div class="spinner-grow" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <br>
+                                    <small id="route-graph-btn"></small>
+                                    <small class="d-none" id="route-graph-log">...</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -363,8 +375,12 @@
         </div>
     </footer>
 
-    <script src="/static/javascript/init.js?2208090020"></script>
-    <script src="/static/javascript/dashboard.js?2208090020"></script>
+    <script src="/static/javascript/viz/viz.js"></script>
+    <script src="/static/javascript/viz/full.render.js"></script>
+    <script src="/static/javascript/graph.js"></script>
+    <script src="/static/javascript/init.js?2208091946"></script>
+    <script src="/static/javascript/dashboard.js?2208091946"></script>
+
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
