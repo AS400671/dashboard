@@ -177,7 +177,7 @@ const renderExchanges = async () => {
         exchangeInfo = listExchanges[exchangeName];
         tempResult += `
             <tr class="${ !(exchangeInfo.ip.v4 || exchangeInfo.ip.v6) ? 'text-bg-warning' : '' }">
-                <td class="text-end">
+                <td class="text-end align-middle">
                     <a href="https://bgp.tools/as/${ escapeHTML(exchangeInfo.asn) }" class="text-black">
                         <span class="text-monospace">
                             ${ escapeHTML(exchangeInfo.asn) }
@@ -240,14 +240,14 @@ const renderConnectivity = async () => {
 
         tempResult += `
             <tr>
-                <td class="text-end">
-                    <a href="https://bgp.tools/as/${ asnName }" class="text-black">
+                <td class="text-end align-middle">
+                    <a href="https://bgp.tools/as/${ asnName }" class="text-black align-middle">
                         <span class="text-monospace">
                             ${ escapeHTML(asnName) }
                         </span>
                     </a>
                 </td>
-                <td>
+                <td class="align-middle">
                     <span class="flag-icon-${asnInfo.country} flag-icon"></span>
                     ${ escapeHTML(asnInfo.provider ? asnInfo.provider : asnInfo.name) }
                 </td>
@@ -300,7 +300,7 @@ const renderPrefixes = async () => {
 
         tempResult += `
             <tr>
-                <td class="text-end">
+                <td class="text-end align-middle">
                     <span class="text-monospace">
                         ${ escapeHTML(prefixInfo.version) }
                     </span>
@@ -376,16 +376,19 @@ const renderInfrastructure = async (type = "total") => {
             <div id="" class="lh-1 pt-1 d-flex align-items-center w-100">
                 <div class="p-0 pt-2">
                     <span class="flag-icon-${ escapeHTML(popInfo[popInfoKeys[i]].country) } flag-icon" style="font-size: 32pt;"></span><br>
-                    <span class="badge no-round ${ !dataLoaded.popDead.includes(popInfoKeys[i]) ? "text-bg-success" : "text-bg-danger" } mt-1 text-center w-100" style="font-size: 8pt;">
-                        ${ !dataLoaded.popDead.includes(popInfoKeys[i]) ? "ACTIVE" : "ERROR" }
-                    </span>
                 </div>
                 <div class="p-2">
-                    <b>${ escapeHTML(popInfo[popInfoKeys[i]].name) }</b><br>
-                    <span class="text-monospace">
+                    <b>
+                        ${ escapeHTML(popInfo[popInfoKeys[i]].name) }
+                    </b>
+                    <br>
+                    <span class="badge ${ !dataLoaded.popDead.includes(popInfoKeys[i]) ? "text-bg-success" : "text-bg-danger" } m-0 text-center" style="font-size: 7pt;">
+                        ${ !dataLoaded.popDead.includes(popInfoKeys[i]) ? "ACTIVE" : "ERROR" }
+                    </span>
+                    <span class="badge text-bg-info m-0 text-center" style="font-size: 7pt;">
                         ${ popInfo[popInfoKeys[i]].version ? escapeHTML(popInfo[popInfoKeys[i]].version) : "unknown" }
                     </span>
-                    </div>
+                </div>
             </div>`;
 
     }
@@ -566,7 +569,8 @@ const fetchDashboard = async (currentPage) => {
         
         case "infrastrcutrure":
         default:
-            document.querySelector("#page-infrastructure").classList.remove("d-none");
+            document.querySelector("#page-infrastructure").classList.remove("d-none");        
+            renderByAs("400671");
             await renderInfrastructure();
             break;
     }
@@ -579,7 +583,6 @@ const fetchDashboard = async (currentPage) => {
             return false;
         }
         let currentPage = location.hash.slice(1);
-        renderByAs("400671");
         fetchDashboard(currentPage);
     };
     fetchDashboard(location.hash.slice(1));
