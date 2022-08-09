@@ -15,19 +15,19 @@
 
 const popInfo = {
     "pop.nyo.network.stypr.com": {
-        "name": "New York",
+        "name": "New York, USA",
         "country": "us",
     },
     "pop.fre.network.stypr.com": {
-        "name": "Fremont",
+        "name": "Fremont, USA",
         "country": "us",
     },
     "pop.par.network.stypr.com": {
-        "name": "Paris",
+        "name": "Paris, France",
         "country": "fr",
     },
     "pop.sel.network.stypr.com": {
-        "name": "Seoul",
+        "name": "Seoul, South Korea",
         "country": "kr",
     },
 };

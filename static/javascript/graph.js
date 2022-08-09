@@ -304,5 +304,3 @@ var renderByAs = async function (as) {
         // alert(`cannot determine downstreams of ${as}; it might be a feeder to one of the collectors, or have too many downstreams.`);
     }
 };
-
-renderByAs("400671");

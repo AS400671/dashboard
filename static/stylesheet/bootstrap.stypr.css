@@ -247,28 +247,41 @@ body {
 }
 
 .logo-wireguard {
+    pointer-events: none;
+    user-select: none;
     z-index:1;
     filter: grayscale(100%);
     opacity: 0.1;
     position: absolute;
-    bottom:-50px;
-    left:-130px;
+    bottom: -50px;
+    left: -130px;
+    display: block !important;
 }
 
 .logo-cdn {
+    pointer-events: none;
+    user-select: none;
     z-index:0;
     filter: grayscale(100%);
     opacity: 0.3;
     position: absolute;
-    bottom:-30px;
-    left:-130px;
+    bottom: -30px;
+    left: -130px;
+    display: block !important;
 }
 
 .logo-dedicated {
+    pointer-events: none;
+    user-select: none;
     z-index:0;
     filter: grayscale(100%);
     opacity: 0.2;
     position: absolute;
-    bottom:-150px;
-    left:-240px;
+    bottom: -150px;
+    left: -240px;
+    display: block !important;
+}
+
+header .nav-link.active {
+    pointer-events: none;
 }
