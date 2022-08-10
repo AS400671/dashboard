@@ -322,9 +322,6 @@ const renderInfrastructure = async (type = "total") => {
     const fetchOutput = dataLoaded.infrastructure;
     const fetchOutputKeys = Object.keys(fetchOutput);
     const ctx = document.getElementById('myChart');
-    feather.replace({
-        'aria-hidden': 'true'
-    });
     const chartLabels = fetchOutput[fetchOutputKeys[0]].hour;
     const chartDatasets = [];
 

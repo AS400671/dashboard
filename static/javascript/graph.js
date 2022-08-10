@@ -32,14 +32,18 @@ const isElementXPercentInViewport = function (el, percentVisible) {
 };
 
 const m_log = function (msg) {
+    /*
     console.log(msg);
     log.innerText = `[INFO ] ${msg}\n` + log.innerText;
+    */
 }
 
 const m_err = function (msg) {
+    /*
     console.error(msg);
     log.innerText = `[ERROR] ${msg}\n` + log.innerText;
     alert(`ERROR: ${msg}`);
+    */
 }
 
 const render = async function (graph) {
