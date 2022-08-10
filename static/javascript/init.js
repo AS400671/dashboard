@@ -34,8 +34,8 @@ const popInfo = {
 
 const prefixDescriptionInfo = {
     "2602:fb7e::/48": "Anycasted Global Network",
-    "2602:fb7e:a::/48": "Fremont PoP",
-    "2602:fb7e:b::/48": "New York PoP",
+    "2602:fb7e:a::/48": "New York PoP",
+    "2602:fb7e:b::/48": "Fremont PoP",
     "2602:fb7e:c::/48": "Paris PoP",
     "2602:fb7e:d::/48": "Seoul PoP",
 }
