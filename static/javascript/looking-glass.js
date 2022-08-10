@@ -9,7 +9,7 @@
        \_88P   "88_/   /     888-_88"  888   
                      _/      888             
 
-                    Copyright 2022 stypr.com
+                    Copyright 2022 stypr LLCcom
 
 */
 

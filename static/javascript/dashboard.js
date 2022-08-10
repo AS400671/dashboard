@@ -9,7 +9,7 @@
        \_88P   "88_/   /     888-_88"  888   
                      _/      888             
 
-                    Copyright 2022 stypr.com
+                    Copyright 2022 stypr LLCcom
 
 */
 
@@ -337,7 +337,6 @@ const renderInfrastructure = async (type = "total") => {
 
     for (let i = 0; i < fetchOutputKeys.length; i++) {
         let color = generateRandomColor();
-        console.log(fetchOutput[fetchOutputKeys[i]].total);
         chartDatasets.push({
             responsive: true,
             label: popInfo[popInfoKeys[i]].name,
@@ -368,7 +367,7 @@ const renderInfrastructure = async (type = "total") => {
                     ticks: {
                         beginAtZero: false,
                         callback: (value) => {
-                            return `${ value/1000000 } MiB`;
+                            return convertSpeed(value); // `${ value/1000000 } MiB`;
                         }
                     }
                 }

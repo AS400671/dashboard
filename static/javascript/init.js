@@ -9,7 +9,7 @@
        \_88P   "88_/   /     888-_88"  888   
                      _/      888             
 
-                    Copyright 2022 stypr.com
+                    Copyright 2022 stypr LLCcom
 
 */
 
@@ -204,6 +204,26 @@ const isDomainName = (domainName) => {
     const regexDomain = /^(?:(?:(?:[a-zA-z\-]+)\:\/{1,3})?(?:[a-zA-Z0-9])(?:[a-zA-Z0-9\-\.]){1,61}(?:\.[a-zA-Z]{2,})+|\[(?:(?:(?:[a-fA-F0-9]){1,4})(?::(?:[a-fA-F0-9]){1,4}){7}|::1|::)\]|(?:(?:[0-9]{1,3})(?:\.[0-9]{1,3}){3}))(?:\:[0-9]{1,5})?$/gi;
     return regexDomain.test(domainName);
 };
+
+const convertSpeed = (speed) => {
+    if (speed < 2 ** 10) return `${speed} Bytes`;
+    if (speed < 2 ** 20) return `${(speed / 1000)} KB`;
+    if (speed < 2 ** 30) return `${(speed / 1000 ** 2)} MB`;
+    if (speed < 2 ** 40) return `${(speed / 1000 ** 3)} GB`;
+    if (speed < 2 ** 50) return `${(speed / 1000 ** 4)} TB`;
+    if (speed < 2 ** 60) return `${(speed / 1000 ** 5)} PB`;
+    return `${(speed / 1000 ** 6)} Eb`;
+}
+
+const convertSpeedBps = (speed) => {
+    return speed
+        .replace("K", "Kbps")
+        .replace("M", "Mbps")
+        .replace("G", "Gbps")
+        .replace("T", "Tbps")
+        .replace("P", "Pbps")
+        .replace("E", "Ebps");
+}
 
 const fetchTimeout = async (resource, options = {}, timeoutSecond = 5) => {
     let {
