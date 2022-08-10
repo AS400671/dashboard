@@ -51,13 +51,23 @@ const fetchInfrastructure = async () => {
                     'tx': []
                 };
                 let tempData = JSON.parse(r.result);
-                for (let i = 0; i < tempData.hour.length; i += 1) {
-                    let tempTime = (String(tempData.hour[i].time.hour).padStart(2, "0") + ":" + String(tempData.hour[i].time.minute).padStart(2, "0"));
-                    let tempTotal = tempData.hour[i].rx + tempData.hour[i].tx;
+
+                // fill empty list
+                let tempHourList = [...tempData.hour];
+                let filledTotal = Array(24).fill({'rx': 0, 'tx': 0, 'time': {'hour':0, 'minute':0}});
+                let j = 0;
+                for(let i=filledTotal.length - tempHourList.length; i < filledTotal.length; i += 1) {
+                    filledTotal[i] = tempHourList[j];
+                    j += 1;
+                }
+
+                for (let i = 0; i < filledTotal.length; i += 1) {
+                    let tempTime = (String(filledTotal[i].time.hour).padStart(2, "0") + ":" + String(filledTotal[i].time.minute).padStart(2, "0"));
+                    let tempTotal = filledTotal[i].rx + filledTotal[i].tx;
                     tempResult.hour.push(tempTime);
                     tempResult.total.push(tempTotal);
-                    tempResult.rx.push(tempData.hour[i].rx);
-                    tempResult.tx.push(tempData.hour[i].tx);
+                    tempResult.rx.push(filledTotal[i].rx);
+                    tempResult.tx.push(filledTotal[i].tx);
                 }
                 return tempResult;
             } catch (e) {
@@ -327,6 +337,7 @@ const renderInfrastructure = async (type = "total") => {
 
     for (let i = 0; i < fetchOutputKeys.length; i++) {
         let color = generateRandomColor();
+        console.log(fetchOutput[fetchOutputKeys[i]].total);
         chartDatasets.push({
             responsive: true,
             label: popInfo[popInfoKeys[i]].name,

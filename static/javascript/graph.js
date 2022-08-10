@@ -158,7 +158,7 @@ const renderByPrefixesOrAddresses = async function (poas, as) {
         }
     });
 
-    let graph = `digraph Propagation{rankdir="TD";`;
+    let graph = `digraph Propagation{rankdir="LR";`;
     graph += `node[style="filled", margin=0 width=0.8 height=0.25 , shape=record, penwidth=1, fillcolor="#336633", fontcolor=white, color="#223322", fontsize="10pt"];`
     graph += `${Array.from(links).join(';')}${group_large_isps ? `subgraph cluster{label="Top-tier ISPs";${Array.from(isp_cluster).join(';')}}` : ''}}`;
     m_log(graph);
