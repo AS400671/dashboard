@@ -364,6 +364,8 @@ const renderInfrastructure = async (type = "total") => {
             intersect: true,
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     ticks: {
@@ -421,7 +423,7 @@ const renderCommunity = async () => {
         tempResult += `
             <tr>
                 <td class="text-monospace text-end align-middle">${ fetchOutput[i].id }</td>
-                <td class="align-middle text-end">
+                <td class="align-middle text-end d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell"">
                     <span class="badge ${ prefClass } w-100">
                         ${ fetchOutput[i].pref }
                     </span>
