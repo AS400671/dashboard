@@ -339,9 +339,11 @@ const renderInfrastructure = async (type = "total") => {
         let color = generateRandomColor();
         chartDatasets.push({
             responsive: true,
+            pointRadius: 2,
+            pointHoverRadius: 2,
             label: popInfo[popInfoKeys[i]].name,
             data: fetchOutput[fetchOutputKeys[i]].total,
-            lineTension: 0.3,
+            lineTension: 0.2,
             backgroundColor: color,
             borderWidth: 2,
             borderColor: color,
