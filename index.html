@@ -178,9 +178,29 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-9">
-                            <div class="my-3 p-3 bg-body shadow-sm">
-                                <h4>Network Traffic</h4>
-                                <canvas class="p-0 my-3 w-100" id="myChart" width="900" height="380"></canvas>
+                            <div class="col-lg-12">
+                                <div class="my-3 p-3 bg-body shadow-sm">
+                                    <h4>Network Traffic</h4>
+                                    <canvas class="p-0 my-3 w-100" id="myChart" style="min-height: 300px; max-height: 350px;" width="900" height="380"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="my-3 p-3 bg-body shadow-sm">
+                                    <h4>Route Propagation Graph</h4>
+                                    <div class="pt-3" class="box display" id="display"></div>
+                                    <div class="row pt-5 mt-5 mb-5" id="loading-screen-graph">
+                                        <div class="col-md-12 text-center">
+                                            <div class="spinner-grow" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <br />
+                                            <small id="route-graph-btn"></small>
+                                            <small class="d-none" id="route-graph-log">...</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -188,24 +208,6 @@
                                 <h4>PoPs</h4>
 
                                 <div id="list-pop"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="my-3 p-3 bg-body shadow-sm">
-                                <h4>Route Propagation Graph</h4>
-                                <div class="pt-3" class="box display" id="display"></div>
-                                <div class="row pt-5 mt-5 mb-5" id="loading-screen-graph">
-                                    <div class="col-md-12 text-center">
-                                        <div class="spinner-grow" role="status">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 text-center">
-                                        <br />
-                                        <small id="route-graph-btn"></small>
-                                        <small class="d-none" id="route-graph-log">...</small>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -282,7 +284,7 @@
                         <table class="table table-responsive">
                             <thead class="table-dark">
                                 <th style="width: 110px;" class="text-end"></th>
-                                <th style="width: 30px;">&nbsp;</th>
+                                <th style="width: 30px;" class="text-center d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">&nbsp;</th>
                                 <th>Description</th>
                             </thead>
                             <tbody id="community-body"></tbody>
@@ -384,14 +386,14 @@
             </div>
         </footer>
 
+        <script crossorigin="anonymous" src="https://unpkg.com/bootstrap@5.2.0/dist/js/bootstrap.min.js" async></script>
+        <script crossorigin="anonymous" src="https://unpkg.com/chart.js@3.9.1/dist/chart.min.js" defer></script>
         <script src="https://unpkg.com/viz.js@2.1.2/viz.js"></script>
         <script src="https://unpkg.com/viz.js@2.1.2/lite.render.js"></script>
         <script src="/static/javascript/init.js?2208110148"></script>
         <script src="/static/javascript/graph.js?2208110148"></script>
         <script src="/static/javascript/dashboard.js?2208110148" defer></script>
 
-        <script crossorigin="anonymous" src="https://unpkg.com/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
-        <script crossorigin="anonymous" src="https://unpkg.com/chart.js@3.9.1/dist/chart.min.js"></script>
     </body>
 </html>
 

@@ -323,8 +323,8 @@ const renderBgpProto = async () => {
                 'preferred': 0,
             };
             
-            for(i in parseOutput){
-                countList = parseOutput[i].match("Routes:[ ]+([0-9]+) imported, ([0-9]+) filtered, ([0-9]+) exported, ([0-9]+) preferred");
+            for(let j in parseOutput){
+                countList = parseOutput[j].match("Routes:[ ]+([0-9]+) imported, ([0-9]+) filtered, ([0-9]+) exported, ([0-9]+) preferred");
                 if(!countList) continue;
                 parseResult.imported += parseInt(countList[1]);
                 parseResult.filtered += parseInt(countList[2]);
