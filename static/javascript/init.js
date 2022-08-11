@@ -146,7 +146,7 @@ const generateRandomColor = () => {
 
 const domCross = `
     <svg class="bi d-block" width="24" height="24">
-        <use xlink:href="#dead" />
+        <use xlink:href="/static/images/icon.stypr.svg#dead" />
     </svg>
 `;
 
