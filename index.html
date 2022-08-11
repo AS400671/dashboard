@@ -1,390 +1,398 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no" />
+        <meta name="keywords" content="stypr, AS400671, Harold Kim, harold.kim" />
+        <meta name="google" content="notranslate" />
+        <meta name="theme-color" content="#f3fff3" />
+        <meta name="referrer" content="no-referrer" />
+        <meta name="description" content="AS400671 Dashboard" />
+        <meta name="twitter:title" content="AS400671" />
+        <meta property="og:title" content="AS400671 Dashbaord" />
+        <meta property="og:description" content="AS400671(AS-STYPR) Dashboard" />
+        <title>AS400671</title>
+        <link rel="shortcut icon" href="/static/images/favicon.jpg" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/static/images/favicon.jpg" />
+        <link rel="preload" href="/static/stylesheet/flag.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin />
+        <link rel="preload" href="/static/fonts/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/static/fonts/oxygen.woff2" as="font" type="font/woff2" crossorigin />
+        <noscript>
+            <link rel="stylesheet" href="/static/stylesheet/flag.css" />
+        </noscript>
+        <link href="/static/stylesheet/bootstrap.css?2208110148" rel="stylesheet" />
+        <link href="/static/stylesheet/bootstrap.stypr.css?2208110148" rel="stylesheet" />
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="stypr, AS400671, Harold Kim, harold.kim">
-    <meta name="google" content="notranslate">
-    <meta name="theme-color" content="#f3fff3">
-    <meta name="referrer" content="no-referrer">
-    <meta name="description" content="AS400671 Dashboard">
-    <meta name="twitter:title" content="AS400671">
-    <meta property="og:title" content="AS400671 Dashbaord">
-    <meta property="og:description" content="AS400671(AS-STYPR) Dashboard">
-    <title>AS400671</title>
-    <link rel="shortcut icon" href="/static/images/favicon.jpg" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/static/images/favicon.jpg">
-    <link rel="preload" href="/static/stylesheet/flag.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin>
-    <link rel="preload" href="/static/fonts/SUIT-Variable.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/static/fonts/oxygen.woff2" as="font" type="font/woff2" crossorigin>
-    <noscript>
-        <link rel="stylesheet" href="/static/stylesheet/flag.css">
-    </noscript>
-    <link href="/static/stylesheet/bootstrap.css?2208110148" rel="stylesheet">
-    <link href="/static/stylesheet/bootstrap.stypr.css?2208110148" rel="stylesheet">
-</head>
+    <body class="bg-light d-flex flex-column h-100">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="dead" viewBox="0 0 16 16">
+                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
+                <path
+                    fill-rule="evenodd"
+                    d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
+                />
+            </symbol>
+            <symbol id="house-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+            </symbol>
+            <symbol id="dead" viewBox="0 0 16 16">
+                <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM4.146 5.146a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 1 1 .708.708l-.647.646.647.646a.5.5 0 1 1-.708.708L5.5 7.207l-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zm5 0a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zM8 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                />
+            </symbol>
+            <symbol id="speedometer2" viewBox="0 0 16 16">
+                <path
+                    d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"
+                />
+                <path
+                    fill-rule="evenodd"
+                    d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"
+                />
+            </symbol>
+            <symbol id="glass" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </symbol>
+            <symbol id="ethernet" viewBox="0 0 16 16">
+                <path
+                    d="M14 13.5v-7a.5.5 0 0 0-.5-.5H12V4.5a.5.5 0 0 0-.5-.5h-1v-.5A.5.5 0 0 0 10 3H6a.5.5 0 0 0-.5.5V4h-1a.5.5 0 0 0-.5.5V6H2.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5ZM3.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25Zm2 0h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25Zm1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5ZM9.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25Zm1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5Z"
+                />
+                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2ZM1 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2Z" />
+            </symbol>
+            <symbol id="github" viewBox="0 0 16 16">
+                <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                />
+            </symbol>
+            <symbol id="twitter" viewBox="0 0 16 16">
+                <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                />
+            </symbol>
+            <symbol id="about" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                />
+            </symbol>
+        </svg>
+        <header>
+            <div class="px-3 py-2 text-bg-dark">
+                <div class="container">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <a href="/" class="d-flex align-items-center my-2 my-lg-0 text-white text-decoration-none">
+                            <span class="logo">AS400671</span>
+                        </a>
+                        <span class="d-none d-sm-none d-md-none d-lg-block d-xl-block mb-3 px-2 mb-md-0 lh-1 me-lg-auto">
+                            <small class="text-monospace"> </small>
+                            <br />
+                            <small class="text-monospace"> </small>
+                        </span>
 
-<body class="bg-light d-flex flex-column h-100">
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="dead" viewBox="0 0 16 16">
-            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
-            <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
-        </symbol>
-        <symbol id="house-fill" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-        </symbol>
-        <symbol id="dead" viewBox="0 0 16 16">
-            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM4.146 5.146a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 1 1 .708.708l-.647.646.647.646a.5.5 0 1 1-.708.708L5.5 7.207l-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zm5 0a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 1 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 0-.708zM8 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
-        </symbol>
-        <symbol id="speedometer2" viewBox="0 0 16 16">
-            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
-            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
-        </symbol>
-        <symbol id="glass" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </symbol>
-        <symbol id="ethernet" viewBox="0 0 16 16">
-            <path d="M14 13.5v-7a.5.5 0 0 0-.5-.5H12V4.5a.5.5 0 0 0-.5-.5h-1v-.5A.5.5 0 0 0 10 3H6a.5.5 0 0 0-.5.5V4h-1a.5.5 0 0 0-.5.5V6H2.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5ZM3.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25Zm2 0h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25Zm1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5ZM9.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25Zm1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5Z" />
-            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2ZM1 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2Z" />
-        </symbol>
-        <symbol id="github" viewBox="0 0 16 16">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-        </symbol>
-        <symbol id="twitter" viewBox="0 0 16 16">
-            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-        </symbol>
-        <symbol id="about" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-        </symbol>
-    </svg>
-    <header>
-        <div class="px-3 py-2 text-bg-dark">
+                        <ul class="header-link-group nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                            <li>
+                                <a class="nav-link active" id="header-link-dashboard">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                        <use xlink:href="#speedometer2" />
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/looking-glass.html" class="nav-link" id="header-link-lg">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                        <use xlink:href="#glass" />
+                                    </svg>
+                                    Lookng Glass
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/services.html" class="nav-link" id="header-link-services">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                        <use xlink:href="#ethernet" />
+                                    </svg>
+                                    Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/about.html" class="nav-link" id="header-link-about">
+                                    <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                        <use xlink:href="#about" />
+                                    </svg>
+                                    About
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-scroller bg-body shadow-sm">
+                <div class="container">
+                    <nav class="nav" aria-label="Secondary navigation">
+                        <a class="nav-link" aria-current="page" href="#infrastructure">
+                            Infrastructures
+                            <span class="rounded-pill badge text-bg-success align-text-bottom" id="counter-pop-alive"></span>
+                            <span class="rounded-pill badge text-bg-danger align-text-bottom" id="counter-pop-dead"></span>
+                        </a>
+                        <a class="nav-link" href="#prefixes"> Prefixes <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-prefixes"></span></a>
+                        <a class="nav-link" href="#exchanges"> Exchanges <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-exchanges"></span></a>
+                        <a class="nav-link" href="#connectivity"> Connectivity <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-connectivity"></span></a>
+                        <a class="nav-link" href="#community"> Communities <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-community"></span></a>
+                        <a class="nav-link" href="#filter"> Security <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-filter"></span></a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="flex-shrink-0 pb-5 pt-4">
             <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="/" class="d-flex align-items-center my-2 my-lg-0 text-white text-decoration-none">
-                        <span class="logo">AS400671</span>
-                    </a>
-                    <span class="d-none d-sm-none d-md-none d-lg-block d-xl-block mb-3 px-2 mb-md-0 lh-1 me-lg-auto">
-                        <small class="text-monospace">
-                        </small>
-                        <br>
-                        <small class="text-monospace">
-                        </small>
-                    </span>
+                <div class="d-none align-items-center p-5 my-5" id="loading-screen">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="spinner-grow" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <br />
+                            <small>Fetching the latest information from routers.. Please wait!</small>
+                        </div>
+                    </div>
+                </div>
 
-                    <ul class="header-link-group nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                        <li>
-                            <a class="nav-link active" id="header-link-dashboard">
-                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                                    <use xlink:href="#speedometer2" />
+                <div class="d-none d-flex align-items-center p-3 my-3 text-white bg-danger shadow-sm">
+                    <div class="lh-1">
+                        <h1 class="h6 mb-0 text-white lh-1">
+                            <b>IPv6 is not available!</b>
+                        </h1>
+                        <small>AS400671 only provides access for IPv6 addresses. You may not be able to access some of services we provide.</small>
+                    </div>
+                </div>
+
+                <div class="d-none" id="page-infrastructure">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="mb-10">
+                            <h1 class="h2">Infrastructures</h1>
+                            <h6>Overview of network infrastructures</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="my-3 p-3 bg-body shadow-sm">
+                                <h4>Network Traffic</h4>
+                                <canvas class="p-0 my-3 w-100" id="myChart" width="900" height="380"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="w-100 bg-body shadow-sm my-3 p-3">
+                                <h4>PoPs</h4>
+
+                                <div id="list-pop"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="my-3 p-3 bg-body shadow-sm">
+                                <h4>Route Propagation Graph</h4>
+                                <div class="pt-3" class="box display" id="display"></div>
+                                <div class="row pt-5 mt-5 mb-5" id="loading-screen-graph">
+                                    <div class="col-md-12 text-center">
+                                        <div class="spinner-grow" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <br />
+                                        <small id="route-graph-btn"></small>
+                                        <small class="d-none" id="route-graph-log">...</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-none" id="page-prefixes">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="mb-12">
+                            <h1 class="h2">Prefixes</h1>
+                            <h6>Announced prefixes from AS400671 routers</h6>
+                        </div>
+                    </div>
+                    <div class="my-3 p-0 bg-body shadow-sm">
+                        <table class="table table-responsive">
+                            <thead class="table-dark">
+                                <th style="width: 70px;">&nbsp;</th>
+                                <th>Prefix</th>
+                                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Description</th>
+                            </thead>
+                            <tbody id="prefixes-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="d-none" id="page-exchanges">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="mb-12">
+                            <h1 class="h2">Exchanges</h1>
+                            <h6>Currently interconnected IXPs(Internet Exchange Points)</h6>
+                        </div>
+                    </div>
+                    <div class="my-3 p-0 bg-body shadow-sm">
+                        <table class="table table-responsive">
+                            <thead class="table-dark">
+                                <th style="width: 70px;">&nbsp;</th>
+                                <th>Exchange Name</th>
+                                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">IPv4</th>
+                                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">IPv6</th>
+                                <th>Speed</th>
+                            </thead>
+                            <tbody id="exchanges-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="d-none" id="page-connectivity">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="mb-12">
+                            <h1 class="h2">Connectivity</h1>
+                            <h6>Upstream providers and interconnected peers</h6>
+                        </div>
+                    </div>
+                    <div class="my-3 p-0 bg-body shadow-sm">
+                        <table class="table table-responsive">
+                            <thead class="table-dark">
+                                <th style="width: 70px;">&nbsp;</th>
+                                <th>Network Name</th>
+                                <th>Type</th>
+                                <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Speed</th>
+                            </thead>
+                            <tbody id="connectivity-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="d-none" id="page-community">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="mb-12">
+                            <h1 class="h2">BGP Large Communities</h1>
+                            <h6>List of currently supported BGP Large Communities (<a href="https://www.rfc-editor.org/rfc/rfc8092.html">RFC8092</a>)</h6>
+                        </div>
+                    </div>
+                    <div class="my-3 p-0 bg-body shadow-sm">
+                        <table class="table table-responsive">
+                            <thead class="table-dark">
+                                <th style="width: 110px;" class="text-end"></th>
+                                <th style="width: 30px;">&nbsp;</th>
+                                <th>Description</th>
+                            </thead>
+                            <tbody id="community-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="d-none" id="page-filter">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <div class="mb-12">
+                            <h1 class="h2">Enforced BGP Filters</h1>
+                            <h6>List of enforced BGP filters to enhance the overall network security</h6>
+                        </div>
+                    </div>
+                    <div class="my-3 p-0 bg-body shadow-sm">
+                        <table class="table table-responsive">
+                            <thead class="table-dark">
+                                <th style="width: 160px;" class="text-end"></th>
+                                <th>Description</th>
+                            </thead>
+                            <tbody id="filter-body">
+                                <tr>
+                                    <td class="text-monospace text-end align-middle">400671:x:100</td>
+                                    <td>Directly announced by AS400671</td>
+                                    <td>300</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-monospace text-end align-middle">400671:x:101</td>
+                                    <td>Learned from upstreams</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-monospace text-end align-middle">400671:x:102</td>
+                                    <td>Learned from customers</td>
+                                    <td>200</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-monospace text-end align-middle">400671:x:103</td>
+                                    <td>Learned from direct peers</td>
+                                    <td>200</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-monospace text-end align-middle">400671:x:104</td>
+                                    <td>Learned from healthcheck route servers</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-monospace text-end align-middle">
+                                        400671:x:200<br />
+                                        ~ 400671:x:299
+                                    </td>
+                                    <td class="align-middle">Learned from exchange points</td>
+                                    <td class="align-middle">150</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center my-0 py-2 mt-auto bg-white border-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 d-flex align-items-center">
+                        <a href="/" class="mb-3 me-2 text-muted text-decoration-none lh-1 my-3">
+                            <span class="logo-black">AS400671</span>
+                        </a>
+                        <span class="mb-3 text-muted lh-1 my-3">
+                            &copy; 2022 stypr LLC
+                            <br />
+                            <small class="text-monospace">Under MIT License. Respective copyrights apply.</small>
+                        </span>
+                    </div>
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex align-items-center">
+                        <li class="ms-3">
+                            <a class="text-muted" href="https://twitter.com/stereotype32">
+                                <svg class="bi" width="24" height="24">
+                                    <use xlink:href="#twitter" />
                                 </svg>
-                                Dashboard
-                            </a>
                             </a>
                         </li>
-                        <li class="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            <a href="/looking-glass.html" class="nav-link" id="header-link-lg">
-                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                                    <use xlink:href="#glass" />
+                        <li class="ms-3">
+                            <a class="text-muted" href="https://github.com/AS400671">
+                                <svg class="bi" width="24" height="24">
+                                    <use xlink:href="#github" />
                                 </svg>
-                                Lookng Glass
                             </a>
                         </li>
-                        <li>
-                            <a href="/services.html" class="nav-link" id="header-link-services">
-                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                                    <use xlink:href="#ethernet" />
+                        <li class="ms-3">
+                            <a class="text-muted" href="https://harold.kim">
+                                <svg class="bi" width="24" height="24">
+                                    <use xlink:href="#house-fill" />
                                 </svg>
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/about.html" class="nav-link" id="header-link-about">
-                                <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                                    <use xlink:href="#about" />
-                                </svg>
-                                About
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="nav-scroller bg-body shadow-sm">
-            <div class="container">
-                <nav class="nav" aria-label="Secondary navigation">
-                    <a class="nav-link" aria-current="page" href="#infrastructure">
-                        Infrastructures
-                        <span class="rounded-pill badge text-bg-success align-text-bottom" id="counter-pop-alive"></span>
-                        <span class="rounded-pill badge text-bg-danger  align-text-bottom" id="counter-pop-dead"></span>
-                    </a>
-                    <a class="nav-link" href="#prefixes"> Prefixes <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-prefixes"></span></a>
-                    <a class="nav-link" href="#exchanges"> Exchanges <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-exchanges"></span></a>
-                    <a class="nav-link" href="#connectivity"> Connectivity <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-connectivity"></span>
-                    <a class="nav-link" href="#community"> Communities <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-community"></span>
-                    <a class="nav-link" href="#filter"> Security <span class="rounded-pill badge text-bg-secondary align-text-bottom" id="counter-filter"></span></a>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <main class="flex-shrink-0 pb-5 pt-4">
-        <div class="container">
+        </footer>
 
-            <div class="d-none align-items-center p-5 my-5" id="loading-screen">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <div class="spinner-grow" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-center">
-                        <br>
-                        <small>Fetching the latest information from routers.. Please wait!</small>
-                    </div>
-                </div>
-            </div>
+        <script src="https://unpkg.com/viz.js@2.1.2/viz.js"></script>
+        <script src="https://unpkg.com/viz.js@2.1.2/lite.render.js"></script>
+        <script src="/static/javascript/init.js?2208110148"></script>
+        <script src="/static/javascript/graph.js?2208110148"></script>
+        <script src="/static/javascript/dashboard.js?2208110148" defer></script>
 
-            <div class="d-none d-flex align-items-center p-3 my-3 text-white bg-danger shadow-sm">
-                <div class="lh-1">
-                    <h1 class="h6 mb-0 text-white lh-1">
-                        <b>IPv6 is not available!</b>
-                    </h1>
-                    <small>AS400671 only provides access for IPv6 addresses. You may not be able to access some of services we provide.</small>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-infrastructure">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-10">
-                        <h1 class="h2">Infrastructures</h1>
-                        <h6>Overview of network infrastructures</h6>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div class="my-3 p-3 bg-body shadow-sm">
-                            <h4>Network Traffic</h4>
-                            <canvas class="p-0 my-3 w-100" id="myChart" width="900" height="380"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="w-100 bg-body shadow-sm my-3 p-3">
-                            <h4>PoPs</h4>
-
-                            <div id="list-pop">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="my-3 p-3 bg-body shadow-sm">
-                            <h4>Route Propagation Graph</h4>
-                            <div class="pt-3" class="box display" id="display"></div>
-                            <div class="row pt-5 mt-5 mb-5" id="loading-screen-graph">
-                                <div class="col-md-12 text-center">
-                                    <div class="spinner-grow" role="status">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <br>
-                                    <small id="route-graph-btn"></small>
-                                    <small class="d-none" id="route-graph-log">...</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-prefixes">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">Prefixes</h1>
-                        <h6>Announced prefixes from AS400671 routers</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th style="width: 70px;">&nbsp;</th>
-                            <th>Prefix</th>
-                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Description</th>
-                        </thead>
-                        <tbody id="prefixes-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-exchanges">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">Exchanges</h1>
-                        <h6>Currently interconnected IXPs(Internet Exchange Points)</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th style="width: 70px;">&nbsp;</th>
-                            <th>Exchange Name</th>
-                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">IPv4</th>
-                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">IPv6</th>
-                            <th>Speed</th>
-                        </thead>
-                        <tbody id="exchanges-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-connectivity">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">Connectivity</h1>
-                        <h6>Upstream providers and interconnected peers</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th style="width: 70px;">&nbsp;</th>
-                            <th>Network Name</th>
-                            <th>Type</th>
-                            <th class="d-none d-sm-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Speed</th>
-                        </thead>
-                        <tbody id="connectivity-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-community">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">BGP Large Communities</h1>
-                        <h6>List of currently supported BGP Large Communities (<a href="https://www.rfc-editor.org/rfc/rfc8092.html">RFC8092</a>)</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th style="width: 110px;" class="text-end"></th>
-                            <th style="width: 30px;">&nbsp;</th>
-                            <th>Description</th>
-                        </thead>
-                        <tbody id="community-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="d-none" id="page-filter">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <div class="mb-12">
-                        <h1 class="h2">Enforced  BGP Filters</h1>
-                        <h6>List of enforced BGP filters to enhance the overall network security</h6>
-                    </div>
-                </div>
-                <div class="my-3 p-0 bg-body shadow-sm">
-                    <table class="table table-responsive">
-                        <thead class="table-dark">
-                            <th style="width: 160px;" class="text-end"></th>
-                            <th>Description</th>
-                        </thead>
-                        <tbody id="filter-body">
-                            <tr>
-                                <td class="text-monospace text-end align-middle">400671:x:100</td>
-                                <td>Directly announced by AS400671</td>
-                                <td>300</td>
-                            </tr>
-                            <tr>
-                                <td class="text-monospace text-end align-middle">400671:x:101</td>
-                                <td>Learned from upstreams</td>
-                                <td>100</td>
-                            </tr>
-                            <tr>
-                                <td class="text-monospace text-end align-middle">400671:x:102</td>
-                                <td>Learned from customers</td>
-                                <td>200</td>
-                            </tr>
-                            <tr>
-                                <td class="text-monospace text-end align-middle">400671:x:103</td>
-                                <td>Learned from direct peers</td>
-                                <td>200</td>
-                            </tr>
-                            <tr>
-                                <td class="text-monospace text-end align-middle">400671:x:104</td>
-                                <td>Learned from healthcheck route servers</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td class="text-monospace text-end align-middle">
-                                    400671:x:200<br>
-                                    ~ 400671:x:299
-                                </td>
-                                <td class="align-middle">Learned from exchange points</td>
-                                <td class="align-middle">150</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-    </main>
-
-    <footer class="d-flex flex-wrap justify-content-between align-items-center my-0 py-2 mt-auto bg-white border-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 d-flex align-items-center">
-                    <a href="/" class="mb-3 me-2 text-muted text-decoration-none lh-1 my-3">
-                        <span class="logo-black">AS400671</span>
-                    </a>
-                    <span class="mb-3 text-muted lh-1 my-3">
-                        &copy; 2022 stypr LLC
-                        <br>
-                        <small class="text-monospace">Under MIT License. Respective copyrights apply.</small>
-                    </span>
-                </div>
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex align-items-center">
-                    <li class="ms-3">
-                        <a class="text-muted" href="https://twitter.com/stereotype32">
-                            <svg class="bi" width="24" height="24">
-                                <use xlink:href="#twitter" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="ms-3">
-                        <a class="text-muted" href="https://github.com/AS400671">
-                            <svg class="bi" width="24" height="24">
-                                <use xlink:href="#github" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="ms-3">
-                        <a class="text-muted" href="https://harold.kim">
-                            <svg class="bi" width="24" height="24">
-                                <use xlink:href="#house-fill" />
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/viz.js@2.1.2/viz.js"></script>
-    <script src="https://unpkg.com/viz.js@2.1.2/lite.render.js"></script>
-    <script src="/static/javascript/init.js?2208110148"></script>
-    <script src="/static/javascript/graph.js?2208110148"></script>
-    <script src="/static/javascript/dashboard.js?2208110148" defer></script>
-
-    <script crossorigin="anonymous" src="https://unpkg.com/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
-    <script crossorigin="anonymous" src="https://unpkg.com/chart.js@3.9.1/dist/chart.min.js"></script>
-</body>
-
+        <script crossorigin="anonymous" src="https://unpkg.com/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+        <script crossorigin="anonymous" src="https://unpkg.com/chart.js@3.9.1/dist/chart.min.js"></script>
+    </body>
 </html>
 
 <!--
