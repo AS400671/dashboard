@@ -264,9 +264,9 @@ body {
 .logo-cdn {
     pointer-events: none;
     user-select: none;
-    z-index:0;
-    filter: grayscale(100%);
+    z-index: -1;
     opacity: 0.3;
+    filter: grayscale(100%);
     position: absolute;
     bottom: -30px;
     left: -130px;
@@ -276,7 +276,7 @@ body {
 .logo-dedicated {
     pointer-events: none;
     user-select: none;
-    z-index:0;
+    z-index: -1;
     filter: grayscale(100%);
     opacity: 0.2;
     position: absolute;
